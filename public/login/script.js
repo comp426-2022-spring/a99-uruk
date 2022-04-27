@@ -1,3 +1,3 @@
 function nextPage(){
-    location.href = "http://localhost:5000/examplepage/"
+    location.href = "http://localhost:5000/coviddata/"
 }
