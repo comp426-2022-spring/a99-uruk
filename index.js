@@ -6,10 +6,18 @@ const user_db = require("./src/services/user-database.js");
 const interactions_db = require("./src/services/interactions-database.js");
 const morgan = require('morgan');
 const path = require('path')
+const session = require('express-session');
 const app = express()
 
 // Serve login page as start page
 app.use(express.static('./public/login'));
+
+// Session for username/password
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
 
 // Allows epxress to use body-parser as middle-ware
 // Needed to transmit data across POST
@@ -56,3 +64,5 @@ app.get('/view-interactions-db', (req, res) => {
 app.use(function(req, res){
     res.status(404).send('404 NOT FOUND')
 });
+
+
