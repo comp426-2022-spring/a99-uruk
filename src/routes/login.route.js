@@ -21,9 +21,10 @@ router.route('/sign-up').post(function (req, res, next) {
     if (typeof insert == "undefined") {
         stmt = user_db.prepare("INSERT INTO userLoginInfo (email, password, username) VALUES (?, ?, ?)");
         insert = stmt.run(user.email, user.password, user.username);
-        res.status(200).send("Account created");
+        console.log("Accounted Created");
+        res.redirect("http://localhost:5000/coviddata/");
     } else {
-        res.status(404).send("Account already exists");
+        console.log("Accounted Already Exists");
     }
 });
 
