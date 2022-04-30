@@ -4,23 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Coinserver</title>
+    <title>a99-uruk</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="home">
-        <p>Please tell us the state on which you would like to focus. Use a two letter lowercase abbreviation of the state.</p>
-        <form id="stateForm">
-            <input type="text" id="userInput"/>
-        </form>
-      <button id="showDataButton">Show me the data!</button>
-      <p>State Name: <span id="stateName"></span></p>
+    <div class="row" id="ushistoric">
+      <h3>This shows the historic covid data from the United States.</h3>
+      <div class="column">
+
+      <button class="showDataButton" id="showDataButtonUS">Show me the data!</button>
       <p>Last Updated on: <span id ="dateUpdated"></span></p>
-      <p>Total Confirmed Cases: <span id ="totalConfirmedCases"></span></p>
-      <p>Population %: <span id ="population_percent"></span></p>
-      <p>Change from prior day: <span id ="change_from_prior_day"></span></p>
-      <p>7 Day Change: <span id ="seven_day_change_percent"></span></p>
-    </div>    
+
+      <h2 class="headings">Cases:</h2>
+
+      <p>Total Cases: <span id="totalCases"></span></p>
+      <p>Population %: <span id ="population_percent_cases"></span></p>
+      <p>Change from prior day: <span id ="change_from_prior_day_cases"></span></p>
+      <p>7 Day Change: <span id ="seven_day_change_percent_cases"></span></p>
+
+      <h2 class="headings">Testing:</h2>
+
+      <p>Total: <span id ="totalTests"></span></p>
+      <p>Population %: <span id ="population_percent_tests"></span></p>
+      <p>Change from prior day: <span id ="change_from_prior_day_tests"></span></p>
+      <p>7 Day Change: <span id ="seven_day_change_percent_tests"></span></p>
+    </div>
+
+    <div class="column">
+      <h2 class="headings">Outcomes:</h2>
+
+      <h3 class="headings">Hospitalized:</h3>
+      <p>Total: <span id ="totalHosp"></span></p>
+      <p>Population %: <span id ="population_percent_hosp"></span></p>
+      <p>Change from prior day: <span id ="change_from_prior_day_hosp"></span></p>
+      <p>7 Day Change: <span id ="seven_day_change_percent_hosp"></span></p>
+      <p>7 Day Average: <span id ="seven_day_average_hosp"></span></p>
+
+
+      <h3 class="headings">In ICU:</h3>
+      <p>Total: <span id ="totalICU"></span></p>
+      <p>Population %: <span id ="population_percent_icu"></span></p>
+      <p>Change from prior day: <span id ="change_from_prior_day_icu"></span></p>
+      <p>7 Day Change: <span id ="seven_day_change_percent_icu"></span></p>
+      <p>7 Day Average: <span id ="seven_day_average_icu"></span></p>
+
+      <h3 class="headings">On Ventilator:</h3>
+      <p>Total: <span id ="totalVent"></span></p>
+      <p>Population %: <span id ="population_percent_vent"></span></p>
+      <p>Change from prior day: <span id ="change_from_prior_day_vent"></span></p>
+      <p>7 Day Change: <span id ="seven_day_change_percent_vent"></span></p>
+      <p>7 Day Average: <span id ="seven_day_average_vent"></span></p>
+
+      
+      <h3 class="headings">Deaths:</h3>
+      <p>Total: <span id ="totalDeaths"></span></p>
+      <p>Population %: <span id ="population_percent_deaths"></span></p>
+      <p>Change from prior day: <span id ="change_from_prior_day_deaths"></span></p>
+      <p>7 Day Change: <span id ="seven_day_change_percent_deaths"></span></p>
+      <p>7 Day Average: <span id ="seven_day_average_deaths"></span></p>
+    </div>
+
+    </div>   
+    <div class="row" id="statehistoric">
+      <h3>Please tell us the state on which you would like to focus. Use a two letter lowercase abbreviation of the state.</h3>
+      <div class="column">      
+        <form id="stateForm">
+          <input type="text" id="userInput"/>
+      </form>
+    <button class="showDataButton" id="showDataButtonST">Show me the data!</button>
+
+    <p>State Name: <span id="stateName"></span></p>
+    <p>Last Updated on: <span id ="dateUpdated_hs"></span></p>
+
+    <!--CASES-->
+    <h2 class="headings">Cases:</h2>
+
+    <p>Total Cases: <span id ="totalCases_hs"></span></p>
+    <p>Population %: <span id ="population_percent_hs"></span></p>
+    <p>Change from prior day: <span id ="change_from_prior_day_hs"></span></p>
+    <p>7 Day Change: <span id ="seven_day_change_percent_hs"></span></p>
+
+    <!--TESTING-->
+    <h2 class="headings">PCR Testing:</h2>
+    <p>Total PCR Tests: <span id="totalTests_hs"></span></p>
+    <p>Population %: <span id ="population_percent_hs_tests"></span></p>
+    <p>Change from prior day: <span id ="change_from_prior_day_hs_tests"></span></p>
+    <p>7 Day Change: <span id ="seven_day_change_percent_hs_tests"></span></p>
+      </div>
+    <div class="column">
+    <!--OUTCOMES-->
+
+    <!--HOSPITALIZED-->
+    <h2 class="headings">Hospitalized:</h2>
+
+    <!--ICU-->
+    <h3 class="headings">In ICU:</h3>
+    <p>Total in ICU: <span id="totalICU_hs"></span></p>
+    <p>Population %: <span id ="population_percent_hs_icu"></span></p>
+    <p>Change from prior day: <span id ="change_from_prior_day_hs_icu"></span></p>
+    <p>7 Day Change: <span id ="seven_day_change_percent_hs_icu"></span></p>
+    <p>7 Day Average: <span id ="seven_day_average_hs_icu"></span></p>
+
+
+    <!--VENTILATOR-->
+    <h3 class="headings">On Ventilator:</h3>
+    <p>Total on Ventilator: <span id="totalVent_hs"></span></p>
+    <p>Population %: <span id ="population_percent_hs_vent"></span></p>
+    <p>Change from prior day: <span id ="change_from_prior_day_hs_vent"></span></p>
+    <p>7 Day Change: <span id ="seven_day_change_percent_hs_vent"></span></p>
+    <p>7 Day Average: <span id ="seven_day_average_hs_vent"></span></p>
+
+    <!--VENTILATOR-->
+    <h3 class="headings">Deaths:</h3>
+    <p>Total on Ventilator: <span id="totalDeaths_hs"></span></p>
+    <p>Population %: <span id ="population_percent_hs_death"></span></p>
+    <p>Change from prior day: <span id ="change_from_prior_day_hs_death"></span></p>
+    <p>7 Day Change: <span id ="seven_day_change_percent_hs_death"></span></p>
+    <p>7 Day Average: <span id ="seven_day_average_hs_death"></span></p>
+
+    </div>
+  </div>  
     
 	<script src="script.js"></script>
   </body>
