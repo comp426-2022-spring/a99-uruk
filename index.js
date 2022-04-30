@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const path = require('path')
 const session = require('express-session');
 const app = express()
+var validator = require("email-validator");
 
 // Serve login page as start page
 app.use(express.static('./public/login'));
