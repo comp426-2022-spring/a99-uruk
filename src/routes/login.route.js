@@ -24,6 +24,8 @@ router.route('/sign-up').post(function (req, res, next) {
     if (validate(user.email)) {
         if (typeof insert == "undefined") {
             req.session.email = user.email;
+            req.session.username = user.username;
+            req.session.password = user.password;
             req.session.loggedin = true;
             stmt = user_db.prepare("INSERT INTO userLoginInfo (email, password, username) VALUES (?, ?, ?)");
             insert = stmt.run(user.email, user.password, user.username);
@@ -66,6 +68,20 @@ router.route('/sign-in').post(function (req, res, next) {
             res.redirect("http://localhost:5000/");
         }
     }
+});
+
+router.route('/get-email').get(function (req, res, next) {
+    console.log(req.session.email);
+    res.status(200).json({"email" : "test@bob.com"});
+});
+
+router.route('/get-username').get(function (req, res, next) {
+    res.status(200).json(req.session.username);
+});
+
+
+router.route('/get-password').get(function (req, res, next) {
+    res.status(200).json(req.session.password);
 });
 
 module.exports = router;

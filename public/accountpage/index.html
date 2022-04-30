@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Account Management</title>
     <link rel="stylesheet" href="style.css">
-
   </head>
   <body>
     <div>
       <h2>Current Account Information</h2>
-      <p><b>User Email:</b></p>
+      <p><b>Email: </b> <span id = "account-email"></span></p>
       <p><b>Username:</b></p>
       <p><b>Password:</b></p>
     </div>
@@ -19,16 +18,16 @@
       <h2>Change Account Information</h1>
       <label for="username"><b>Change Username:</b></label><br>
       <input type="text" id="username" name="username" placeholder="Enter new username"><br>
-      <label for="lname"><b>Change Email:</b></label><br>
-      <input type="text" id="email" name="lname" placeholder="Enter new valid email"><br><br>
+      <label for="email"><b>Change Email:</b></label><br>
+      <input type="text" id="email" name="email" placeholder="Enter new valid email"><br><br>
       <input type="submit" value="Submit">
 
     </form>
     <div>
       <h2>Delete Account</h2>
-      <button onclick = "deleteAccount()">Delete Account</button>
+      <button>Delete Account</button>
     </div>
 
-	<script src="script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
