@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>a99-uruk</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
   </head>
   <body>
     <div class="row" id="ushistoric">
@@ -22,6 +24,10 @@
       <p>Change from prior day: <span id ="change_from_prior_day_cases"></span></p>
       <p>7 Day Change: <span id ="seven_day_change_percent_cases"></span></p>
 
+      <div class ="col-6 chart">
+        <canvas id = "myChart" width = "500" height = "400"></canvas>
+      </div>
+      
       <h2 class="headings">Testing:</h2>
 
       <p>Total: <span id ="totalTests"></span></p>
@@ -90,6 +96,10 @@
     <p>Population %: <span id ="population_percent_hs_tests"></span></p>
     <p>Change from prior day: <span id ="change_from_prior_day_hs_tests"></span></p>
     <p>7 Day Change: <span id ="seven_day_change_percent_hs_tests"></span></p>
+
+    <div class ="col-6 chart">
+      <canvas id = "myChart2" width = "500" height = "400"></canvas>
+    </div>
       </div>
     <div class="column">
     <!--OUTCOMES-->
@@ -121,6 +131,7 @@
     <p>Change from prior day: <span id ="change_from_prior_day_hs_death"></span></p>
     <p>7 Day Change: <span id ="seven_day_change_percent_hs_death"></span></p>
     <p>7 Day Average: <span id ="seven_day_average_hs_death"></span></p>
+
 
     </div>
   </div>  
