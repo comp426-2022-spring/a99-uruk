@@ -4,6 +4,7 @@ const user_db = require("../services/user-database.js");
 const interactions_db = require("../services/interactions-database.js");
 const { request } = require('express');
 const session = require('express-session');
+const { validate } = require('email-validator');
 
 // Sign up endpoint
 router.route('/sign-up').post(function (req, res, next) {
@@ -20,15 +21,20 @@ router.route('/sign-up').post(function (req, res, next) {
     let insert = stmt.get(user.email);
     console.log(insert);
 
-    if (typeof insert == "undefined") {
-        req.session.email = user.email;
-        req.session.loggedin = true;
-        stmt = user_db.prepare("INSERT INTO userLoginInfo (email, password, username) VALUES (?, ?, ?)");
-        insert = stmt.run(user.email, user.password, user.username);
-        console.log("Accounted Created");
-        res.redirect("http://localhost:5000/coviddata/");
+    if (validate(user.email)) {
+        if (typeof insert == "undefined") {
+            req.session.email = user.email;
+            req.session.loggedin = true;
+            stmt = user_db.prepare("INSERT INTO userLoginInfo (email, password, username) VALUES (?, ?, ?)");
+            insert = stmt.run(user.email, user.password, user.username);
+            console.log("Accounted Created");
+            res.redirect("http://localhost:5000/coviddata/");
+        } else {
+            console.log("Account Already Exists");
+            res.redirect("http://localhost:5000/");
+        }
     } else {
-        console.log("Account Already Exists");
+        console.log("Email is invalid.");
         res.redirect("http://localhost:5000/");
     }
 });
