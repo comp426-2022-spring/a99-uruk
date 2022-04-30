@@ -87,4 +87,32 @@ function fetchData() {
         
 }
     )}
+         /*
+        // Chart One
+        let labels1 = ["Positive Cases %", "Uninfected US Population %"];
+        let data1 = [result.data[0].cases.total.calculated.population_percent, 100 - result.data[0].cases.total.calculated.population_percent];
+        let colors1 = ['#49A9EA', '#36CAAB'];
+
+        let myChart1 = document.getElementById("myChart").getContext('2d');
+        let chart1 = new Chart(myChart1, {
+            type: 'doughnut',
+            data: {
+                labels: labels1, 
+                datasets: [ {
+                    data: data1, 
+                    backgroundColor: colors1
+                }]
+            },
+            options: {
+                title: {
+                    text: "US HISTORIC COVID DATA",
+                    display: true
+                }
+            }
+        });
+
+
+    })
+    
 }
+*/
