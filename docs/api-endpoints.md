@@ -16,7 +16,7 @@ curl http://localhost:5000/
 Redirects to http://localhost:5000/app/
 ```
 
-### / (GET)
+### /app/ (GET)
 
 #### Request cURL
 
