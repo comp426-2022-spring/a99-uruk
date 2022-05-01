@@ -169,7 +169,7 @@ If successful sign up:
 {message: "Account Created"}
 ```
 
-### /sign-in/ (GET)
+### /app/sign-in/ (POST)
 
 #### Request cURL
 
@@ -340,3 +340,4 @@ curl http://localhost:5000/view-user-db/
 ```
 Returns user.db
 ```
+
