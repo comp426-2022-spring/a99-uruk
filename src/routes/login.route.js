@@ -33,14 +33,14 @@ router.route('/sign-up').post(function (req, res, next) {
             stmt = user_db.prepare("INSERT INTO userLoginInfo (email, password, username) VALUES (?, ?, ?)");
             insert = stmt.run(user.email, user.password, user.username);
             console.log("Accounted Created");
-            res.redirect("http://localhost:5000/coviddata/");
+            res.redirect("http://localhost:5000/app/coviddata/");
         } else {
             console.log("Account Already Exists");
-            res.redirect("http://localhost:5000/");
+            res.redirect("http://localhost:5000/app/");
         }
     } else {
         console.log("Email is invalid.");
-        res.redirect("http://localhost:5000/");
+        res.redirect("http://localhost:5000/app/");
     }
 });
 
@@ -62,7 +62,7 @@ router.route('/sign-in').post(function (req, res, next) {
     console.log(user.username)
     if (typeof insert == "undefined") {
         console.log("Account Doesn't Exist Yet")
-        res.redirect("http://localhost:5000/");
+        res.redirect("http://localhost:5000/app/");
     } else {
         if (user.username == insert.username && user.password == insert.password) {
             // Set session user details
@@ -71,10 +71,10 @@ router.route('/sign-in').post(function (req, res, next) {
             req.session.password = user.password;
     
             console.log("Successfully Logged In")
-            res.redirect("http://localhost:5000/coviddata/");
+            res.redirect("http://localhost:5000/app/coviddata/");
         } else {
             console.log("Wrong Username/Password");
-            res.redirect("http://localhost:5000/");
+            res.redirect("http://localhost:5000/app/");
         }
     }
 });
