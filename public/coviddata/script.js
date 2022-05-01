@@ -98,6 +98,7 @@ function fetchUsData() {
 
 function getStateName() {
     var input = document.getElementById("userInput").value;
+    
 }
 
 function fetchStData() {
