@@ -7,7 +7,7 @@
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/coviddata/
+curl http://localhost:5000/coviddata/
 ```
 
 #### Response
@@ -21,7 +21,7 @@ Returns /public/coviddata/index.html file
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/coviddata/style.css/
+curl http://localhost:5000/coviddata/style.css/
 ```
 
 #### Response
@@ -35,7 +35,7 @@ Returns /public/coviddata/style.css file
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/coviddata/script.js/
+curl http://localhost:5000/coviddata/script.js/
 ```
 
 #### Response
@@ -49,7 +49,7 @@ Returns /public/coviddata/script.js file
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/sign-up/
+curl http://localhost:5000/sign-up/
 ```
 
 #### Request Body
@@ -70,53 +70,11 @@ If user is registered, does not add new data. Returns status 404 and message "Ac
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/sign-in/
+curl http://localhost:5000/sign-in/
 ```
 
 #### Response
 
 ```
 Attempts to sign user into account.
-```
-
-### /app/ (GET)
-
-#### Request cURL
-
-```
-curl http://localhost:5000/app/
-```
-
-#### Response
-
-```
-Returns /public/login/html.css file
-```
-
-### /app/script.js/ (GET)
-
-#### Request cURL
-
-```
-curl http://localhost:5000/app/script.js/
-```
-
-#### Response
-
-```
-Returns /public/login/script.js file
-```
-
-### /app/style.css (GET)
-
-#### Request cURL
-
-```
-curl http://localhost:5000/app/style.css
-```
-
-#### Response
-
-```
-Returns /public/login/style.css file
 ```
