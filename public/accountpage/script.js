@@ -1,5 +1,5 @@
 window.onload = function getUserInfo() {
-    fetch("http://localhost:5000/get-user-info/")
+    fetch("http://localhost:5000/app/get-user-info/")
     .then(function(response) {
         return response.json();
     })

@@ -169,6 +169,6 @@ function fetchStData() {
 }
 
 document.getElementById("accountButton").onclick = function() {
-    location.href = "http://localhost:5000/accountPage";
+    location.href = "http://localhost:5000/app/accountPage";
 }
 
