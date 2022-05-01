@@ -86,7 +86,7 @@ router.route('/app/get-user-info').get(function (req, res, next) {
 
 
 // Change username endpoint
-router.route('/change-username').post(function (req, res, next) {
+router.route('/app/change-username').post(function (req, res, next) {
     let newUsername = req.body.username;
    
     console.log("Username changed");
@@ -106,7 +106,7 @@ router.route('/change-username').post(function (req, res, next) {
 
 
 // Change email endpoint
-router.route('/change-email').post(function (req, res, next) {
+router.route('/app/change-email').post(function (req, res, next) {
     let newEmail = req.body.email;
    
     console.log(req.session.email);
@@ -135,7 +135,7 @@ router.route('/change-email').post(function (req, res, next) {
 
 
 // Change password endpoint
-router.route('/change-password').post(function (req, res, next) {
+router.route('/app/change-password').post(function (req, res, next) {
     let newPassword = req.body.password;
    
     console.log("Password changed");
@@ -154,7 +154,7 @@ router.route('/change-password').post(function (req, res, next) {
 });
 
 // Delete account endpoint
-router.route('/delete-account').get(function (req, res, next) {
+router.route('/app/delete-account').get(function (req, res, next) {
     // Get user ID for insert
     let getRow = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
     let row = getRow.get(req.session.email);
