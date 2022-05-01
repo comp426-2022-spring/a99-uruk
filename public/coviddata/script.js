@@ -1,5 +1,14 @@
-const showDataButtonUS = document.getElementById('showDataButtonUS')
-showDataButtonUS.addEventListener("click",fetchUsData)
+window.onload = function () {
+    console.log('hi')
+    const showDataButtonUS = document.getElementById('showDataButtonUS')
+    showDataButtonUS.addEventListener("click",fetchUsData)
+    const showDataButtonST = document.getElementById('showDataButtonST')
+    showDataButtonST.addEventListener("click",fetchStData)
+    document.getElementById("accountButton").onclick = function() {
+        location.href = "http://localhost:5000/app/accountPage";
+    }
+}
+
 function fetchUsData() {
     fetch('https://api.covidtracking.com/v2/us/daily.json')
     .then(function(response){
@@ -87,12 +96,10 @@ function fetchUsData() {
     })
 }
 
-var input;
 function getStateName() {
-    input = document.getElementById("userInput").value;
+    var input = document.getElementById("userInput").value;
 }
-const showDataButtonST = document.getElementById('showDataButtonST')
-showDataButtonST.addEventListener("click",fetchStData)
+
 function fetchStData() {
     input = document.getElementById("userInput").value
     fetch('https://api.covidtracking.com/v2/states/' + input + '/daily.json')
@@ -167,8 +174,3 @@ function fetchStData() {
 
     })
 }
-
-document.getElementById("accountButton").onclick = function() {
-    location.href = "http://localhost:5000/accountPage";
-}
-

@@ -80,7 +80,7 @@ router.route('/sign-in').post(function (req, res, next) {
 });
 
 // Get use info endpoint
-router.route('/get-user-info').get(function (req, res, next) {
+router.route('/app/get-user-info').get(function (req, res, next) {
     // Returns JSON with the user's email, username, and password
     res.status(200).json({"email" : req.session.email, "username" : req.session.username, "password" : req.session.password});
 });
