@@ -59,18 +59,18 @@ router.route('/sign-in').post(function (req, res, next) {
     let stmt = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
     let insert = stmt.get(user.email);
     console.log(insert);
-
+    console.log(user.username)
     if (typeof insert == "undefined") {
         console.log("Account Doesn't Exist Yet")
         res.redirect("http://localhost:5000/");
     } else {
-        if (user.username = insert.username && user.password == insert.password) {
+        if (user.username == insert.username && user.password == insert.password) {
             // Set session user details
             req.session.email = user.email;
             req.session.username = insert.username;
             req.session.password = user.password;
     
-            console.log("Successfuly Logged In")
+            console.log("Successfully Logged In")
             res.redirect("http://localhost:5000/coviddata/");
         } else {
             console.log("Wrong Username/Password");
@@ -87,11 +87,11 @@ router.route('/get-user-info').get(function (req, res, next) {
 
 
 
-// Sign in Endpoint
+// Change username endpoint
 router.route('/change-username').post(function (req, res, next) {
     let newUsername = req.body.username;
    
-    console.log("Email changed");
+    console.log("Username changed");
     console.log(req.session.username);
 
     // Get user ID for insert
@@ -106,12 +106,10 @@ router.route('/change-username').post(function (req, res, next) {
 });
 
 
-
-// Sign in Endpoint
+// Change email endpoint
 router.route('/change-email').post(function (req, res, next) {
     let newEmail = req.body.email;
    
-    console.log("Email changed");
     console.log(req.session.email);
 
     // Get user ID for insert
@@ -125,6 +123,7 @@ router.route('/change-email').post(function (req, res, next) {
     // If email doesn't exist in DB update the DB, otherwise go back to the account page
     if (typeof newEmailRow == "undefined" && validate(newEmail)) {
         console.log("Email is not being used.");
+        console.log("Email changed");
         let stmt = user_db.prepare("UPDATE userLoginInfo SET email = ? WHERE userId = ?");
         let insert = stmt.run(newEmail, userId);
         req.session.email = newEmail;
@@ -134,5 +133,26 @@ router.route('/change-email').post(function (req, res, next) {
         res.redirect("/accountpage");
     }
 });
+
+
+// Change password endpoint
+router.route('/change-password').post(function (req, res, next) {
+    let newPassword = req.body.password;
+   
+    console.log("Password changed");
+    console.log(req.session.password);
+
+    // Get user ID for insert
+    let getRow = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
+    let row = getRow.get(req.session.email);
+    let userId = row.userId;
+
+    let stmt = user_db.prepare("UPDATE userLoginInfo SET password = ? WHERE userId = ?");
+    let insert = stmt.run(newPassword, userId);
+    req.session.password = newPassword;
+    res.redirect("/accountpage")
+});
+
+
 
 module.exports = router;
