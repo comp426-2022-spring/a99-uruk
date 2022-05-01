@@ -16,6 +16,19 @@ curl http://localhost:5000/
 Redirects to http://localhost:5000/app/
 ```
 
+#### Headers
+```
+Connection: keep-alive
+Content-Length: 96
+Content-Type: text/html; charset=utf-8
+Date: Sun, 01 May 2022 23:50:28 GMT
+Keep-Alive: timeout=5
+Location: http://localhost:5000/app/
+Vary: Accept
+X-Powered-By: Express
+```
+
+
 ### /app/ (GET)
 
 #### Request cURL
@@ -29,6 +42,19 @@ curl http://localhost:5000/app/
 ```
 Returns /public/login/index.html file
 ```
+
+#### Headers
+```
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Connection: keep-alive
+Date: Sun, 01 May 2022 23:50:28 GMT
+ETag: W/"462-18081697340"
+Keep-Alive: timeout=5
+Last-Modified: Sun, 01 May 2022 20:56:53 GMT
+X-Powered-By: Express
+```
+
 
 ### /app/login/style.css/ (GET)
 
@@ -44,6 +70,20 @@ curl http://localhost:5000/app/login/style.css/
 Returns /public/login/style.css file
 ```
 
+#### Headers
+```
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Connection: keep-alive
+Date: Sun, 01 May 2022 23:50:28 GMT
+ETag: W/"6f2-18081e5673f"
+Keep-Alive: timeout=5
+Last-Modified: Sun, 01 May 2022 23:12:16 GMT
+X-Powered-By: Express
+```
+
+
+
 ### /app/login/script.js/ (GET)
 
 #### Request cURL
@@ -57,6 +97,19 @@ curl http://localhost:5000/app/login/script.js/
 ```
 Returns /public/login/script.js file
 ```
+
+#### Headers
+```
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Connection: keep-alive
+Date: Sun, 01 May 2022 23:50:28 GMT
+ETag: W/"8ae-18081ac77b9"
+Keep-Alive: timeout=5
+Last-Modified: Sun, 01 May 2022 22:10:05 GMT
+X-Powered-By: Express
+```
+
 
 ### /app/accountpage/ (GET)
 
@@ -72,6 +125,21 @@ curl http://localhost:5000/app/accountpage/
 Returns /public/accountpage/index.html file
 ```
 
+#### Headers
+```
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Connection: keep-alive
+Content-Length: 2324
+Content-Type: text/html; charset=UTF-8
+Date: Sun, 01 May 2022 23:52:17 GMT
+ETag: W/"914-18081e56739"
+Keep-Alive: timeout=5
+Last-Modified: Sun, 01 May 2022 23:12:16 GMT
+X-Powered-By: Express
+```
+
+
 ### /app/accountpage/style.css/ (GET)
 
 #### Request cURL
@@ -85,6 +153,20 @@ curl http://localhost:5000/app/accountpage/style.css/
 ```
 Returns /public/accountpage/style.css file
 ```
+
+#### Headers
+```
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Content-Length: 272
+Content-Type: text/css; charset=UTF-8
+Date: Sun, 01 May 2022 23:52:17 GMT
+ETag: W/"110-18081e5673b"
+Last-Modified: Sun, 01 May 2022 23:12:16 GMT
+X-Powered-By: Express
+```
+
+
 
 ### /app/accountpage/script.js/ (GET)
 
@@ -100,6 +182,20 @@ curl http://localhost:5000/app/accountpage/script.js/
 Returns /public/coviddata/script.js file
 ```
 
+#### Headers
+```
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Content-Length: 622
+Content-Type: application/javascript; charset=UTF-8
+Date: Sun, 01 May 2022 23:52:17 GMT
+ETag: W/"26e-18081e5673a"
+Last-Modified: Sun, 01 May 2022 23:12:16 GMT
+X-Powered-By: Express
+```
+
+
+
 ### /app/coviddata/ (GET)
 
 #### Request cURL
@@ -113,6 +209,20 @@ curl http://localhost:5000/app/coviddata/
 ```
 Returns /public/coviddata/index.html file
 ```
+
+#### Headers
+```
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Connection: keep-alive
+Date: Sun, 01 May 2022 23:53:05 GMT
+ETag: W/"1933-18081e5673c"
+Keep-Alive: timeout=5
+Last-Modified: Sun, 01 May 2022 23:12:16 GMT
+X-Powered-By: Express
+```
+
+
 
 ### /app/coviddata/style.css/ (GET)
 
@@ -128,6 +238,21 @@ curl http://localhost:5000/app/coviddata/style.css/
 Returns /public/coviddata/style.css file
 ```
 
+#### Headers
+```
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Connection: keep-alive
+Date: Sun, 01 May 2022 23:53:05 GMT
+ETag: W/"184-18081e5673e"
+Keep-Alive: timeout=5
+Last-Modified: Sun, 01 May 2022 23:12:16 GMT
+X-Powered-By: Express
+```
+
+
+
+
 ### /app/coviddata/script.js/ (GET)
 
 #### Request cURL
@@ -141,6 +266,20 @@ curl http://localhost:5000/app/coviddata/script.js/
 ```
 Returns /public/coviddata/script.js file
 ```
+
+#### Headers
+```
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Connection: keep-alive
+Date: Sun, 01 May 2022 23:53:05 GMT
+ETag: W/"32e7-18081e5673d"
+Keep-Alive: timeout=5
+Last-Modified: Sun, 01 May 2022 23:12:16 GMT
+X-Powered-By: Express
+```
+
+
 
 ### /app/sign-up/ (POST)
 
