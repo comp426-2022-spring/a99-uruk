@@ -5,29 +5,24 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <div class = "login">
-            <div>
-                <label for="username"><b>Username:</b></label>
-                <input type="text" id="username" placeholder = "Enter username"name="username" required>
+        <div id="container">
+            <div id="login">
+                <h1>Uruk COVID Dashboard</h1>
+                <div id="message" style="visibility:hidden">
+                    <p id="submitresult"></p>
+                </div>
+                <div>
+                    <input type="text" id="username" placeholder = "Username"name="username" required>
+                </div>
+                <div>
+                    <input type="text" placeholder = "Email" id="email" name="email" required>
+                </div>
+                <div>
+                    <input type="password" id="password" placeholder = "Password (min. 8 characters)" name="password" minlength="8" required>
+                </div>
+                <button id="signin-btn" onclick="signIn()">Sign In</button>
+                <button id="create-btn" onclick="createAccount()">Create Account</button>
             </div>
-            
-                <div>
-                    <label for="email"><b>Email:</b></label>
-                    <input type="text" placeholder = "Enter valid email" id="email" name="email" required>
-                </div>
-                
-                
-                <div>
-                    <label for="pass"><b>Password (8 characters minimum):</b></label>
-                    <input type="password" id="password" placeholder = "Enter password" name="password"
-                           minlength="8" required>
-                </div>
-                
-                <input type="submit"  value="Create Account">
-                <input type="submit" formaction="/sign-in" value="Sign into Account">
-            <p id="submitresult">result</p>
-            <button onclick="createAccount()">Create Account Real</button>
-            <button onclick="signIn()">Sign In Real</button>
         </div>
     </body>
 </html>

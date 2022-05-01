@@ -12,7 +12,6 @@ router.route('/app/coviddata/style.css').get(function (req, res, next) {
 })
 
 router.route('/app/coviddata/script.js').get(function (req, res, next) {
-    //console.log(req.session.email)
     res.sendFile(path.join(__dirname.slice(0,-11), 'public/coviddata/script.js'));
 })
 
