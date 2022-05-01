@@ -1,5 +1,4 @@
 const showDataButtonUS = document.getElementById('showDataButtonUS')
-console.log(document.getElementById('test'))
 showDataButtonUS.addEventListener("click",fetchUsData)
 function fetchUsData() {
     fetch('https://api.covidtracking.com/v2/us/daily.json')
