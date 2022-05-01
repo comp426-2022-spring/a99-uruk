@@ -1,5 +1,21 @@
 # a99 Final Project
 
+
+##Instructions on Covid-19 Dashboard
+Before you begin using our dashboard, you will need to make sure you have everything you need installed. Here is a list of dependencies you will need:
+1. npm install
+2. npm install express
+3. npm install minimist
+4. npm install body-parser
+5. npm install nodemon
+6. npm install morgan
+7. npm install better-sqlite3
+8. npm install email-validator
+9. npm install express-session
+
+To run the system, simply use the command `npm run`, and you will then be able to find the app at http://HOST/app/. This will bring you to the login page, where you can either login or sign up. Once you have done one of these things, you can view your own information, or view different kinds of covid-19 data.
+
+
 ## UPDATE
 
 ## Test
