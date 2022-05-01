@@ -7,7 +7,7 @@ const session = require('express-session');
 const { validate } = require('email-validator');
 
 // Sign up endpoint
-router.route('/sign-up').post(function (req, res, next) {
+router.route('/app/sign-up/').post(function (req, res, next) {
     // Pass in account creation info through JSON
     // Create object to hold account info
     let user = {
@@ -29,23 +29,20 @@ router.route('/sign-up').post(function (req, res, next) {
             req.session.username = user.username;
             req.session.password = user.password;
 
-
             stmt = user_db.prepare("INSERT INTO userLoginInfo (email, password, username) VALUES (?, ?, ?)");
             insert = stmt.run(user.email, user.password, user.username);
-            console.log("Accounted Created");
-            res.redirect("http://localhost:5000/app/coviddata/");
+            console.log("Account Created");
+            res.send({message: "Account Created"});
         } else {
-            console.log("Account Already Exists");
-            res.redirect("http://localhost:5000/app/");
+            res.send({message: "Account Already Exists"})
         }
     } else {
-        console.log("Email is invalid.");
-        res.redirect("http://localhost:5000/");
+        res.send({message: "Email is invalid"})
     }
 });
 
 // Sign in Endpoint
-router.route('/sign-in').post(function (req, res, next) {
+router.route('/app/sign-in/').post(function (req, res, next) {
     // Pass in account creation info through JSON
 
     // Create object to hold account info
@@ -61,9 +58,8 @@ router.route('/sign-in').post(function (req, res, next) {
     console.log(insert);
     console.log(user.username)
     if (typeof insert == "undefined") {
-        // If account is already in DB prevent sign in
-        console.log("Account Doesn't Exist Yet")
-        res.redirect("http://localhost:5000/app/");
+        // If account isn't already in DB prevent sign in
+        res.send({message:"Account Doesn't Exist Yet"})
     } else {
         if (user.username == insert.username && user.password == insert.password) {
             // If username and password are correct permit sign in
@@ -73,12 +69,10 @@ router.route('/sign-in').post(function (req, res, next) {
             req.session.username = insert.username;
             req.session.password = user.password;
     
-            console.log("Successfully Logged In")
-            res.redirect("http://localhost:5000/coviddata/app/");
+            res.send({message:"Success"})
         } else {
             // If username or password are incorrect block sign in
-            console.log("Wrong Username/Password");
-            res.redirect("http://localhost:5000/app/");
+            res.send({message:"Incorrect username/password"})
         }
     }
 });
