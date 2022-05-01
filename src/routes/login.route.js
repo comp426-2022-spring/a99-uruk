@@ -87,16 +87,33 @@ router.route('/get-user-info').get(function (req, res, next) {
 
 
 // Sign in Endpoint
-router.route('/accountpage/change-email').post(function (req, res, next) {
+router.route('/change-email').post(function (req, res, next) {
     // Pass in account creation info through JSON
     // Create object to hold account info
-    let user = {
-        email: req.body.email,
-    }
+    let newEmail = req.body.email;
+   
+    console.log("Email changed");
+    console.log(req.session.email);
 
-    let stmt = user_db.prepare("INSERTO INTO (email) (?) VALUESuserLoginInfo WHERE email = ?");
-    let insert = stmt.run(user.email, req.session.email);
-    next();
+    // Get user ID for insert
+    let getRow = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
+    let row = getRow.get(req.session.email);
+    let userId = row.userId;
+
+    // Check if desired email already exists in DB
+    let getNewEmailRow = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
+    let newEmailRow = getNewEmailRow.get(newEmail);
+    // If email doesn't exist in DB update the DB, otherwise go back to the account page
+    if (typeof newEmailRow == "undefined" && validate(newEmail)) {
+        console.log("Email is not being used.");
+        let stmt = user_db.prepare("UPDATE userLoginInfo SET email = ? WHERE userId = ?");
+        let insert = stmt.run(newEmail, userId);
+        req.session.email = newEmail;
+        res.redirect("/accountpage")
+    } else {
+        console.log("Email is being used");
+        res.redirect("/accountpage");
+    }
 });
 
 module.exports = router;
