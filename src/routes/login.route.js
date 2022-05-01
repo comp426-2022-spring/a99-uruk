@@ -86,10 +86,29 @@ router.route('/get-user-info').get(function (req, res, next) {
 });
 
 
+
+// Sign in Endpoint
+router.route('/change-username').post(function (req, res, next) {
+    let newUsername = req.body.username;
+   
+    console.log("Email changed");
+    console.log(req.session.username);
+
+    // Get user ID for insert
+    let getRow = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
+    let row = getRow.get(req.session.email);
+    let userId = row.userId;
+
+    let stmt = user_db.prepare("UPDATE userLoginInfo SET username = ? WHERE userId = ?");
+    let insert = stmt.run(newUsername, userId);
+    req.session.username = newUsername;
+    res.redirect("/accountpage")
+});
+
+
+
 // Sign in Endpoint
 router.route('/change-email').post(function (req, res, next) {
-    // Pass in account creation info through JSON
-    // Create object to hold account info
     let newEmail = req.body.email;
    
     console.log("Email changed");
