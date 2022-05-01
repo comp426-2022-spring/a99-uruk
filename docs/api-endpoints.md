@@ -466,6 +466,17 @@ curl http://localhost:5000/view-interactions-db/
 Returns interactions.db
 ```
 
+#### Headers
+```
+Connection: keep-alive
+Date: Sun, 01 May 2022 23:55:31 GMT
+ETag: W/"273-IbszDcyvPA0T7sqBNDoryJif89I"
+Keep-Alive: timeout=5
+X-Powered-By: Express
+```
+
+
+
 ### /view-user-db/ (GET)
 
 #### Request cURL
@@ -480,3 +491,11 @@ curl http://localhost:5000/view-user-db/
 Returns user.db
 ```
 
+#### Headers
+```
+Connection: keep-alive
+Date: Sun, 01 May 2022 23:54:54 GMT
+ETag: W/"56-xY/Vo+Z9wc3/RXiyzFQ51VIYiBw"
+Keep-Alive: timeout=5
+X-Powered-By: Express
+```
