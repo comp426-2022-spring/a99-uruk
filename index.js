@@ -9,10 +9,9 @@ const path = require('path')
 const session = require('express-session');
 const app = express()
 var validator = require("email-validator");
-const { application } = require('express');
 
 // Serve login page as start page
-//app.use(express.static('./public/login'));
+app.use(express.static('./public/login'));
 
 // Session for username/password
 app.use(session({
@@ -39,9 +38,7 @@ const server = app.listen(HTTP_PORT, () => {
     console.log('App listening on port %PORT%'.replace('%PORT%',HTTP_PORT))
 });
 
-
-// startup, accountpage, coviddata routes
-app.use(require("./src/routes/startup.route"))
+// accountpage + coviddata routes
 app.use(require("./src/routes/accountpage.route"))
 app.use(require("./src/routes/coviddata.route"))
 
