@@ -45,6 +45,9 @@ app.use(require("./src/routes/coviddata.route"))
 // Signup & signin endpoints route
 app.use(require("./src/routes/login.route"))
 
+// Startup route
+app.use(require("./src/routes/startup.route"))
+
 
 // Endpoint that lets you view all user accounts
 // Should be removed before final submission
