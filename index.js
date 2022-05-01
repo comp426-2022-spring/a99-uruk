@@ -10,9 +10,6 @@ const session = require('express-session');
 const app = express()
 var validator = require("email-validator");
 
-// Serve login page as start page
-app.use(express.static('./public/login'));
-
 // Session for username/password
 app.use(session({
 	secret: 'secret',

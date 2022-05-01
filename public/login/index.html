@@ -6,12 +6,10 @@
     </head>
     <body>
         <div class = "login">
-            <form action="/sign-up" method="POST">
-    
-                <div>
-                    <label for="username"><b>Username:</b></label>
-                    <input type="text" id="username" placeholder = "Enter username"name="username" required>
-                </div>
+            <div>
+                <label for="username"><b>Username:</b></label>
+                <input type="text" id="username" placeholder = "Enter username"name="username" required>
+            </div>
             
                 <div>
                     <label for="email"><b>Email:</b></label>
@@ -26,7 +24,10 @@
                 </div>
                 
                 <input type="submit"  value="Create Account">
-                <input type="submit" formaction="/sign-in" value="Sign into Account"> 
+                <input type="submit" formaction="/sign-in" value="Sign into Account">
+            <p id="submitresult">result</p>
+            <button onclick="createAccount()">Create Account Real</button>
+            <button onclick="signIn()">Sign In Real</button>
         </div>
     </body>
 </html>
