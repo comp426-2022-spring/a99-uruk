@@ -33,10 +33,10 @@ router.route('/sign-up').post(function (req, res, next) {
             stmt = user_db.prepare("INSERT INTO userLoginInfo (email, password, username) VALUES (?, ?, ?)");
             insert = stmt.run(user.email, user.password, user.username);
             console.log("Accounted Created");
-            res.redirect("http://localhost:5000/coviddata/");
+            res.redirect("http://localhost:5000/app/coviddata/");
         } else {
             console.log("Account Already Exists");
-            res.redirect("http://localhost:5000/");
+            res.redirect("http://localhost:5000/app/");
         }
     } else {
         console.log("Email is invalid.");
@@ -62,7 +62,7 @@ router.route('/sign-in').post(function (req, res, next) {
     console.log(user.username)
     if (typeof insert == "undefined") {
         console.log("Account Doesn't Exist Yet")
-        res.redirect("http://localhost:5000/");
+        res.redirect("http://localhost:5000/app/");
     } else {
         if (user.username == insert.username && user.password == insert.password) {
             // Set session user details
@@ -71,10 +71,10 @@ router.route('/sign-in').post(function (req, res, next) {
             req.session.password = user.password;
     
             console.log("Successfully Logged In")
-            res.redirect("http://localhost:5000/coviddata/");
+            res.redirect("http://localhost:5000/coviddata/app/");
         } else {
             console.log("Wrong Username/Password");
-            res.redirect("http://localhost:5000/");
+            res.redirect("http://localhost:5000/app/");
         }
     }
 });
@@ -102,7 +102,7 @@ router.route('/change-username').post(function (req, res, next) {
     let stmt = user_db.prepare("UPDATE userLoginInfo SET username = ? WHERE userId = ?");
     let insert = stmt.run(newUsername, userId);
     req.session.username = newUsername;
-    res.redirect("/accountpage")
+    res.redirect("/app/accountpage")
 });
 
 
@@ -127,10 +127,10 @@ router.route('/change-email').post(function (req, res, next) {
         let stmt = user_db.prepare("UPDATE userLoginInfo SET email = ? WHERE userId = ?");
         let insert = stmt.run(newEmail, userId);
         req.session.email = newEmail;
-        res.redirect("/accountpage")
+        res.redirect("/app/accountpage")
     } else {
         console.log("Email is being used");
-        res.redirect("/accountpage");
+        res.redirect("/app/accountpage");
     }
 });
 
@@ -150,7 +150,7 @@ router.route('/change-password').post(function (req, res, next) {
     let stmt = user_db.prepare("UPDATE userLoginInfo SET password = ? WHERE userId = ?");
     let insert = stmt.run(newPassword, userId);
     req.session.password = newPassword;
-    res.redirect("/accountpage")
+    res.redirect("/app/accountpage")
 });
 
 // Delete account endpoint
@@ -162,7 +162,7 @@ router.route('/delete-account').get(function (req, res, next) {
 
     let stmt = user_db.prepare("DELETE FROM userLoginInfo WHERE userId = ?");
     let insert = stmt.run(userId);
-    res.redirect("/")
+    res.redirect("/app/")
 });
 
 
