@@ -1,3 +1,4 @@
+// Require NPM packages
 const express = require('express');
 const minimist = require('minimist');
 const bodyParser = require("body-parser");
@@ -7,10 +8,12 @@ const interactions_db = require("./src/services/interactions-database.js");
 const morgan = require('morgan');
 const path = require('path')
 const session = require('express-session');
-const app = express()
 var validator = require("email-validator");
 
-// Session for username/password
+// Create Express app
+const app = express()
+
+// Session Express can use to store username, email, and password
 app.use(session({
 	secret: 'secret',
 	resave: true,
@@ -22,6 +25,7 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Extract arguments from run command
 const argv = (minimist)(process.argv.slice(2));
 
 // Set valid arguments
