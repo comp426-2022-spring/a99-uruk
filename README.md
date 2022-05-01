@@ -1,81 +1,35 @@
-# a99 Final Project
+# Team Uruk COVID-19 Dashboard
+
+## Introduction
+COVID-19 dashboard that allows you to to view COVID information and statistics for any state in the USA, along with country-wide data. Notably some of the data that is displayed, include case count information, outcome statistics (ICU, ventilator, etc), and testing statistics.
+
+## Installation Requirements
+* Node.js LTS (16.3.X or greater)
+
+## Installation Instructions
+* Clone repository
+* Run `npm install` inside cloned directory
 
 
-## Instructions on Covid-19 Dashboard
-Before you begin using our dashboard, you will need to make sure you have everything you need installed. Here is a list of dependencies you will need:
-1. npm install
-2. npm install express
-3. npm install minimist
-4. npm install body-parser
-5. npm install nodemon
-6. npm install morgan
-7. npm install better-sqlite3
-8. npm install email-validator
-9. npm install express-session
+## Team Structure/Planning
+* [Team Structure](docs/roles.md)
+* [Team Meetings](docs/meetings.md)
 
-To run the system, simply use the command `npm run`, and you will then be able to find the app at http://HOST/app/. This will bring you to the login page, where you can either login or sign up. Once you have done one of these things, you can view your own information, or view different kinds of covid-19 data.
+## API Documenation
+* [API Documenation ](docs/api-endpoints.md)
 
+## Run Instructions
+* Run either `npm test` (opens up DB information endpoints) or `npm start`
+* Go to [localhost:5000/app/](localhost:5000/app/)\
 
-## UPDATE
+## Dependencies
 
-## Test
-
-You don't need to accept this assignment since you are already assigned to teams. So, there is not assignment invite link for a99.
-
-## Summary 
-
-COMP426 final project template repository.
-All your code and documentation goes here.
-Change this text to be a brief description of your final project.
-Put the name of your project in the header above.
-You will change everything below to be the main technical documentation, as outlined below.
-
-## First steps
-
-Other steps that you will need to take after your team has accepted the assignment:
-
-1. Choose a license and update the LICENSE file accordingly. 
-2. Edit this README.md file and use it as the main location of your technical documentation with links out to information contained under `/docs/`.
-3. Create a `/docs/` directory for more elaborate documentation of your API, planning notes, etc.
-4. Make sure that all of your team members have access to the repository as administrators.
-5. Create a project under the **Projects** tab. Use this to manage your planning. Create a To-do list, etc. Explore the tools available and user them to manage your project.
-7. Assign team roles and include a listing of those roles in this README.md file or in another file under `/docs/`.
-8. Then put your entire development workflow in this repository.
-9. Use **Pull requests** to propose changes and incorporate them into your code from various team members. 
-10. Use **Issues** to identify and track bugs and also to communicate about various aspects of the project.
-
-## Team mangement
-
-Plan to meet with your team ASAP.
-Talk through identifying roles within your team.
-
-Try to figure out what each of you are good at/enjoy doing and try to work out roles that incorporate that.
-
-Some basic roles you will want to consider:
-
-1. A review manager - someone to review pull requests and merge or reject them and manage the related discussions
-2. A plan manager - someone to keep an eye on the overall plan and keep the project tab/to-do list up to date
-3. A documentation manager - someone to keep the documentation in order and identify what is missing and needs to be documented
-4. A release manager - someone to manage the packaging and release process for your prototype package
-5. A project manager - someone keeping track of all the moving parts and make sure that everything that needs to happen is happening.
-5. Roles for team members to take charge or different parts of the project. Possible roles:
-    1. Front end lead
-    2. Back end lead
-    3. Database lead
-    4. Design lead
-    5. Etc.
-
-You will notice that there are more roles than people in your group.
-That is because you will all be doing a hybrid job of managing a thing while working on other things.
-
-## Check in with instructional staff
-
-Schedule a few times throughout the rest of the semester for your team to check-in with your assigned instructional staff member during their scheduled office hours. 
-
-## Assignment instructions
-
-And that is about all you need to get started.
-
-All the rest of the assignment instructions are available at: https://comp426.johndmart.in/a/99
-
-Good skill and be creative!
+Dependency | Version 
+--- | ---
+better-sqlite3 | 7.5.1
+body-parser | 1.20.0
+email-validator | 2.0.4
+express | 4.18.1
+express-session | 1.17.2
+minimist | 1.2.6
+nodemon | 2.0.16
