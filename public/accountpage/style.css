@@ -1,23 +1,16 @@
-.column {
-    float: left;
-    width: 50%;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-body {
-    background-color: #13294B;
-    color: #FFFFFF;
+body{
+  background-color:rgba(0, 150, 236, 0.295);
 }
-.headings {
-color: #4B9CD3;
-text-decoration: underline;
-text-decoration-color: #4B9CD3;
+
+input[type=password], input[type=text] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  display: inline-block;
+  box-sizing: border-box;
 }
-.showDataButton {
-background-color: #4B9CD3
+
+.topright {
+  float:right;
+  padding-right: 4px;
 }

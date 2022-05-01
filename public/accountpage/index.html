@@ -8,24 +8,46 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class = "topright"> 
+      <form method = "GET" action = "/coviddata/">
+        <button>Return to COVID Data</button>
+      </form>
+    </div>
     <div>
       <h2>Current Account Information</h2>
       <p><b>Email: </b> <span id = "account-email"></span></p>
-      <p><b>Username:</b></p>
-      <p><b>Password:</b></p>
+      <p><b>Username: </b> <span id = "account-username"></span></p>
+      <p><b>Password: </b> <span id = "account-password"></span></p>
     </div>
-    <form>
+  
       <h2>Change Account Information</h1>
-      <label for="username"><b>Change Username:</b></label><br>
-      <input type="text" id="username" name="username" placeholder="Enter new username"><br>
-      <label for="email"><b>Change Email:</b></label><br>
-      <input type="text" id="email" name="email" placeholder="Enter new valid email"><br><br>
-      <input type="submit" value="Submit">
+      <form action="/change-username" method="POST">
+        <label for="username"><b>Change Username:</b></label><br>
+        <input type="text" id="username" name="username" placeholder="Enter new username"><br>
+        <input type="submit" value="Submit">
+      </form>
+      <br>
+      <br>
+      <form method="POST" action="/change-email/">
+        <label for="email"><b>Change Email:</b></label><br>
+        <input type="text" id="email" name="email" placeholder="Enter new valid email"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+      <br>
+      <br>
+      <form  method="POST" action="/change-password">
+        <label for="password"><b>Change Password:</b></label><br>
+        <input type="text" id="password" name="password" placeholder="Enter new password"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+   
 
     </form>
     <div>
       <h2>Delete Account</h2>
-      <button>Delete Account</button>
+      <form method = "GET" action = "/delete-account">
+        <button>Delete Account</button>
+      </form>
     </div>
 
     <script src="script.js"></script>

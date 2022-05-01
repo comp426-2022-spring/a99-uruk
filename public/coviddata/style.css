@@ -1,23 +1,30 @@
-.column {
-    float: left;
-    width: 50%;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-body {
-    background-color: #13294B;
-    color: #FFFFFF;
+.topright {
+  float:right;
+  padding-right: 4px;
 }
+
+.column {
+  float: left;
+  width: 50%;
+}
+  
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+  background-color: #13294B;
+  color: #FFFFFF;
+}
+
 .headings {
-color: #4B9CD3;
-text-decoration: underline;
-text-decoration-color: #4B9CD3;
+  color: #4B9CD3;
+  text-decoration: underline;
+  text-decoration-color: #4B9CD3;
 }
 .showDataButton {
-background-color: #4B9CD3
+  background-color: #4B9CD3
 }
