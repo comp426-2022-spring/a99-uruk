@@ -13,7 +13,8 @@ if (interactions_row == undefined) {
             userInteractionId INTEGER PRIMARY KEY, 
             email TEXT,
             username TEXT,
-            time TEXT
+            time TEXT,
+            interactiontype TEXT
         );`
         interactions_db.exec(sqlInit);
 } else {

@@ -10,6 +10,23 @@ window.onload = function () {
 }
 
 function fetchUsData() {
+    var date = new Date();
+    var current_date = (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getFullYear() + " at " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    console.log(current_date);
+    var frontend_state_interaction = JSON.stringify({"state" : "usa", "time": current_date});
+
+    var options = {
+        method: "POST",
+        headers: {"Content-Type": 'application/json', Accept : 'application/json'},
+        body: frontend_state_interaction
+    }
+    
+    fetch('http://localhost:5000/app/log-frontend-interaction', options)
+    .then(function(response) {
+        return response.json();
+    });
+
+
     fetch('https://api.covidtracking.com/v2/us/daily.json')
     .then(function(response){
         return response.json();
@@ -20,7 +37,6 @@ function fetchUsData() {
     
         // CASES
         document.getElementById("totalCases").innerHTML = result.data[0].cases.total.value;
-        document.getElementById("dateUpdated").innerHTML = result.data[0].date;
         document.getElementById("population_percent_cases").innerHTML = result.data[0].cases.total.calculated.population_percent;
         document.getElementById("change_from_prior_day_cases").innerHTML = result.data[0].cases.total.calculated.change_from_prior_day;
         document.getElementById("seven_day_change_percent_cases").innerHTML = result.data[0].cases.total.calculated.seven_day_change_percent;
@@ -98,11 +114,27 @@ function fetchUsData() {
 
 function getStateName() {
     var input = document.getElementById("userInput").value;
-    
+
 }
 
 function fetchStData() {
     input = document.getElementById("userInput").value
+    var date = new Date();
+    var current_date = (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getFullYear() + " at " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    console.log(current_date);
+    var frontend_state_interaction = JSON.stringify({"state" : input, "time": current_date});
+
+    var options = {
+        method: "POST",
+        headers: {"Content-Type": 'application/json', Accept : 'application/json'},
+        body: frontend_state_interaction
+    }
+    
+    fetch('http://localhost:5000/app/log-frontend-interaction', options)
+    .then(function(response) {
+        return response.json();
+    });
+
     fetch('https://api.covidtracking.com/v2/states/' + input + '/daily.json')
     .then(function(response){
         return response.json();
@@ -113,7 +145,6 @@ function fetchStData() {
 
         // CASES
         document.getElementById("stateName").innerHTML = result.data[0].state;
-        document.getElementById("dateUpdated_hs").innerHTML = result.data[0].date;
         document.getElementById("totalCases_hs").innerHTML = result.data[0].cases.total.value;
         document.getElementById("population_percent_hs").innerHTML = result.data[0].cases.total.calculated.population_percent;
         document.getElementById("change_from_prior_day_hs").innerHTML = result.data[0].cases.total.calculated.change_from_prior_day;
