@@ -32,6 +32,8 @@ h1{
   text-align:center;
 }
 
+/* Inspired by https://codepen.io/mamislimen/pen/jOwwLvy 's login page*/
+
 label{
 	color: rgb(255, 255, 255);
 	font-size: 2.3em;
@@ -74,9 +76,10 @@ input{
   width:75%;
 }
 
+/* Inspired by https://getcssscan.com/css-buttons-examples */
 button{
 	width: 50%;
-	height: 40px;
+	height: 45px;
 	margin: 10px auto;
 	justify-content: center;
 	display: block;

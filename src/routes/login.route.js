@@ -8,8 +8,7 @@ const { validate } = require('email-validator');
 
 // Sign up endpoint
 router.route('/app/sign-up/').post(function (req, res, next) {
-    // Pass in account creation info through JSON
-    // Create object to hold account info
+    // Pass in account creation info through JSON and ceate object to hold account info
     let user = {
         email: req.body.email,
         username : req.body.username,
@@ -43,9 +42,7 @@ router.route('/app/sign-up/').post(function (req, res, next) {
 
 // Sign in Endpoint
 router.route('/app/sign-in/').post(function (req, res, next) {
-    // Pass in account creation info through JSON
-
-    // Create object to hold account info
+    // Pass in account creation info through JSON and ceate object to hold account info
     let user = {
         email: req.body.email,
         username : req.body.username,
@@ -87,10 +84,8 @@ router.route('/app/get-user-info').get(function (req, res, next) {
 
 // Change username endpoint
 router.route('/app/change-username').post(function (req, res, next) {
+    // Set new username based on form entry
     let newUsername = req.body.username;
-   
-    console.log("Username changed");
-    console.log(req.session.username);
 
     // Get user ID for insert
     let getRow = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
@@ -101,16 +96,16 @@ router.route('/app/change-username').post(function (req, res, next) {
     let stmt = user_db.prepare("UPDATE userLoginInfo SET username = ? WHERE userId = ?");
     let insert = stmt.run(newUsername, userId);
     req.session.username = newUsername;
+    // Send user back to accountpage
     res.status(200).redirect("/app/accountpage")
 });
 
 
 // Change email endpoint
 router.route('/app/change-email').post(function (req, res, next) {
+    // Set new email based on form entry
     let newEmail = req.body.email;
    
-    console.log(req.session.email);
-
     // Get user ID for insert
     let getRow = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
     let row = getRow.get(req.session.email);
@@ -119,16 +114,16 @@ router.route('/app/change-email').post(function (req, res, next) {
     // Check if desired email already exists in DB
     let getNewEmailRow = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
     let newEmailRow = getNewEmailRow.get(newEmail);
+    
     // If email doesn't exist in DB update the DB, otherwise go back to the account page
     if (typeof newEmailRow == "undefined" && validate(newEmail)) {
-        console.log("Email is not being used.");
-        console.log("Email changed");
         let stmt = user_db.prepare("UPDATE userLoginInfo SET email = ? WHERE userId = ?");
         let insert = stmt.run(newEmail, userId);
         req.session.email = newEmail;
         res.redirect("/app/accountpage")
     } else {
         console.log("Email is being used");
+        // Send user back to accountpage
         res.redirect("/app/accountpage");
     }
 });
@@ -136,10 +131,8 @@ router.route('/app/change-email').post(function (req, res, next) {
 
 // Change password endpoint
 router.route('/app/change-password').post(function (req, res, next) {
+    // Set new password based on form entry
     let newPassword = req.body.password;
-   
-    console.log("Password changed");
-    console.log(req.session.password);
 
     // Get user ID for insert
     let getRow = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
@@ -150,6 +143,8 @@ router.route('/app/change-password').post(function (req, res, next) {
     let stmt = user_db.prepare("UPDATE userLoginInfo SET password = ? WHERE userId = ?");
     let insert = stmt.run(newPassword, userId);
     req.session.password = newPassword;
+
+    // Send user back to accountpage
     res.redirect("/app/accountpage")
 });
 
@@ -163,19 +158,16 @@ router.route('/app/delete-account').get(function (req, res, next) {
     // Delete account based on userId
     let stmt = user_db.prepare("DELETE FROM userLoginInfo WHERE userId = ?");
     let insert = stmt.run(userId);
-    // Send user back to login/signup page
+    // Send user back to login page
     res.redirect("/app/")
 });
 
 
-// Logs frontend interaction for user
+// Logs frontend interaction for user with email, username, time, and state accessed
 router.route('/app/log-frontend-interaction').post(function (req, res, next) {
-    console.log("test");
     let stmt = interactions_db.prepare("INSERT INTO userInteractionInfo (email, username, time, interactiontype) VALUES (?, ?, ?, ?)");
     let insert = stmt.run(req.session.email, req.session.username, req.body.time, req.body.state);
     res.status(200);
 });
-
-
 
 module.exports = router;

@@ -7,19 +7,18 @@ router.route('//').get(function (req, res, next) {
     res.redirect("http://localhost:5000/app/")
 });
 
-// Serves html
+// Serves index.html for login page
 router.route('/app/').get(function (req, res, next) {
     res.sendFile(path.join(__dirname.slice(0,-11), 'public/login/index.html'));
 });
 
-// Return css
+// Return style.css for login page
 router.route('/app/style.css').get(function (req, res, next) {
     res.sendFile(path.join(__dirname.slice(0,-11), 'public/login/style.css'));
 })
 
-// Returns js
+// Returns script.js for login page
 router.route('/app/script.js').get(function (req, res, next) {
-    console.log(req.session.email)
     res.sendFile(path.join(__dirname.slice(0,-11), 'public/login/script.js'));
 })
 

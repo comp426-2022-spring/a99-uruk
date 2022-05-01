@@ -1,55 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Account Management</title>
-    <link rel="stylesheet" href="/app/accountpage/style.css">
-  </head>
-  <body>
-    <div class = "topright"> 
-      <form method = "GET" action = "/app/coviddata/">
-        <button>Return to COVID Data</button>
-      </form>
-    </div>
-    <div>
-      <h2>Current Account Information</h2>
-      <p><b>Email: </b> <span id = "account-email"></span></p>
-      <p><b>Username: </b> <span id = "account-username"></span></p>
-      <p><b>Password: </b> <span id = "account-password"></span></p>
-    </div>
-  
-      <h2>Change Account Information</h1>
-      <form action="/app/change-username" method="POST">
-        <label for="username"><b>Change Username:</b></label><br>
-        <input type="text" id="username" name="username" placeholder="Enter new username" required><br>
-        <input type="submit" value="Submit">
-      </form>
-      <br>
-      <br>
-      <form method="POST" action="/app/change-email/">
-        <label for="email"><b>Change Email:</b></label><br>
-        <input type="text" id="email" name="email" placeholder="Enter new valid email" required><br><br>
-        <input type="submit" value="Submit">
-      </form>
-      <br>
-      <br>
-      <form  method="POST" action="/app/change-password">
-        <label for="password"><b>Change Password:</b></label><br>
-        <input type="text" id="password" name="password" placeholder="Enter new password" minlength="8" required><br><br>
-        <input type="submit" value="Submit">
-      </form>
-   
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Account Management</title>
+  <link rel="stylesheet" href="/app/accountpage/style.css">
+</head>
 
+<body>
+  <!-- Button in the top right that allows user to return back to the coviddata page -->
+  <div class="topright">
+    <form method="GET" action="/app/coviddata/">
+      <button>Return to COVID Data</button>
     </form>
+  </div>
+
+  <!-- Shows the current account info for the user, pouplated with values in script.js -->
+  <div>
+    <h2>Current Account Information</h2>
+    <p><b>Email: </b> <span id="account-email"></span></p>
+    <p><b>Username: </b> <span id="account-username"></span></p>
+    <p><b>Password: </b> <span id="account-password"></span></p>
+  </div>
+
+  <h2>Change Account Information</h1>
+    <!--Form that allows user to change their username -->
+    <form action="/change-username" method="POST">
+      <label for="username"><b>Change Username:</b></label><br>
+      <input type="text" id="username" name="username" placeholder="Enter new username" required><br>
+      <input type="submit" value="Submit">
+    </form>
+    <br>
+    <br>
+
+    <!-- Form that allows user to change their email -->
+    <form method="POST" action="/change-email/">
+      <label for="email"><b>Change Email:</b></label><br>
+      <input type="text" id="email" name="email" placeholder="Enter new valid email" required><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <br>
+    <br>
+
+    <!-- Form that allows user to change their password -->
+    <form method="POST" action="/change-password">
+      <label for="password"><b>Change Password:</b></label><br>
+      <input type="text" id="password" name="password" placeholder="Enter new password" minlength="8" required><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <!-- Form that allows user to delete their account -->
     <div>
       <h2>Delete Account</h2>
-      <form method = "GET" action = "/app/delete-account">
+        <form method = "GET" action = "/app/delete-account">
         <button>Delete Account</button>
       </form>
     </div>
-
     <script src="/app/accountpage/script.js"></script>
-  </body>
+</body>
+
 </html>
