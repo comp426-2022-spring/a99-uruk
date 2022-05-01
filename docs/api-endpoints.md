@@ -16,7 +16,7 @@ curl http://localhost:5000/
 Redirects to http://localhost:5000/app/
 ```
 
-### / (GET)
+### /app/ (GET)
 
 #### Request cURL
 
@@ -194,4 +194,38 @@ If username or password does not match:
 
 If successful sign in:
 {message: "Success"}
+```
+
+### /app/get-user-info/ (GET)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/app/get-user-info/
+```
+
+#### Response
+
+```
+{"email" : "user's email", "username" : "user's username", "password" : "user's password"}
+```
+
+### /app/change-username/ (GET)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/app/change-username/
+```
+
+#### Request Body
+
+```
+{"username": "new username"}
+```
+
+#### Response
+
+```
+Red
 ```

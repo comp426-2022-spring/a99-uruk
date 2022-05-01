@@ -48,7 +48,7 @@ app.use(require("./src/routes/startup.route"))
 
 // Endpoint that lets you view all user accounts
 // Should be removed before final submission
-app.get('/view-user-db', (req, res) => {
+app.get('/app/view-user-db', (req, res) => {
     const select_statement = user_db.prepare('SELECT * FROM userLoginInfo').all();
     res.status(200).json(select_statement);
 });

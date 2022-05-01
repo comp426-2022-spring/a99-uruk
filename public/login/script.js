@@ -10,7 +10,7 @@ async function createAccount() {
         return response.json();
     })
 
-    if (result.message == "Account Created"){
+    if (result.message == "Account created"){
         document.getElementById("message").style.visibility = "hidden";
         location.href = "http://localhost:5000/app/coviddata/";
     } else {

@@ -101,7 +101,7 @@ router.route('/change-username').post(function (req, res, next) {
     let stmt = user_db.prepare("UPDATE userLoginInfo SET username = ? WHERE userId = ?");
     let insert = stmt.run(newUsername, userId);
     req.session.username = newUsername;
-    res.redirect("/app/accountpage")
+    res.status(200).redirect("/app/accountpage")
 });
 
 
