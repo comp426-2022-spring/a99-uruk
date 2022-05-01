@@ -195,3 +195,149 @@ If username or password does not match:
 If successful sign in:
 {message: "Success"}
 ```
+
+### /app/get-user-info/ (GET)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/app/get-user-info/
+```
+
+#### Response
+
+```
+{"email" : "user's email", "username" : "user's username", "password" : "user's password"}
+```
+
+### /app/change-username/ (POST)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/app/change-username/
+```
+
+#### Request Body
+
+```
+{"username": "new username"}
+```
+
+#### Response
+
+```
+Changes user's username in the database.
+Status 200, no JSON response.
+```
+
+### /app/change-email/ (POST)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/app/change-email/
+```
+
+#### Request Body
+
+```
+{"email": "new email"}
+```
+
+#### Response
+
+```
+Checks if email in request is currently in database. If so, does not change database.
+If email is not in use, changes database to reflect new email.
+Status 200, no JSON response.
+```
+
+### /app/change-password/ (POST)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/app/change-password/
+```
+
+#### Request Body
+
+```
+{"password": "new password"}
+```
+
+#### Response
+
+```
+Changes user's password in the database.
+Status 200, no JSON response.
+```
+
+### /app/change-password/ (GET)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/app/delete-account/
+```
+
+#### Response
+
+```
+Deletes user's account from the database.
+Redirects back to login page.
+Redirects to http://localhost:5000/app/
+```
+
+### /app/log-frontend-interaction/ (POST)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/app/log-frontend-interaction/
+```
+
+#### Request Body
+
+```
+{"email": "user's email", "username": "user's username", "time": "current time", "state": "state which the user viewed",}
+```
+
+#### Response
+
+```
+Logs the user's email, username, time accessed, and state viewed in the frontend interaction database.
+Status 200, no JSON response.
+```
+
+## DEBUG/TEST SERVER ONLY
+
+### /view-interactions-db/ (GET)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/view-interactions-db/
+```
+
+#### Response
+
+```
+Returns interactions.db
+```
+
+### /view-user-db/ (GET)
+
+#### Request cURL
+
+```
+curl http://localhost:5000/view-user-db/
+```
+
+#### Response
+
+```
+Returns user.db
+```
+
