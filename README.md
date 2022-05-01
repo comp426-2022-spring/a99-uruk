@@ -1,7 +1,7 @@
 # a99 Final Project
 
 
-##Instructions on Covid-19 Dashboard
+## Instructions on Covid-19 Dashboard
 Before you begin using our dashboard, you will need to make sure you have everything you need installed. Here is a list of dependencies you will need:
 1. npm install
 2. npm install express
