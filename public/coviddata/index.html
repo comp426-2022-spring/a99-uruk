@@ -7,9 +7,15 @@
     <title>a99-uruk</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
+    <script src="script.js"></script>
   </head>
   <body>
+    <div class = "topright"> 
+      <form method = "GET" action = "/accountPage/">
+        <button>View/Change Account Info</button>
+      </form>
+    </div>
+    </div>
     <div class="row" id="ushistoric">
       <h3>This shows the historic covid data from the United States.</h3>
       <div class="column">
@@ -131,11 +137,7 @@
     <p>Change from prior day: <span id ="change_from_prior_day_hs_death"></span></p>
     <p>7 Day Change: <span id ="seven_day_change_percent_hs_death"></span></p>
     <p>7 Day Average: <span id ="seven_day_average_hs_death"></span></p>
-
-
     </div>
   </div>  
-    
-	<script src="script.js"></script>
   </body>
 </html>
