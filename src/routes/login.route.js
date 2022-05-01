@@ -101,7 +101,7 @@ router.route('/change-username').post(function (req, res, next) {
     let stmt = user_db.prepare("UPDATE userLoginInfo SET username = ? WHERE userId = ?");
     let insert = stmt.run(newUsername, userId);
     req.session.username = newUsername;
-    res.redirect("/app/accountpage")
+    res.status(200).redirect("/app/accountpage")
 });
 
 
@@ -173,6 +173,7 @@ router.route('/app/log-frontend-interaction').post(function (req, res, next) {
     console.log("test");
     let stmt = interactions_db.prepare("INSERT INTO userInteractionInfo (email, username, time, interactiontype) VALUES (?, ?, ?, ?)");
     let insert = stmt.run(req.session.email, req.session.username, req.body.time, req.body.state);
+    res.status(200);
 });
 
 

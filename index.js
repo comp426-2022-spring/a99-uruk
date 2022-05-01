@@ -9,6 +9,7 @@ const morgan = require('morgan');
 const path = require('path')
 const session = require('express-session');
 var validator = require("email-validator");
+const { isArgumentsObject } = require('util/types');
 
 // Create Express app
 const app = express()
@@ -29,7 +30,7 @@ app.use(bodyParser.json());
 const argv = (minimist)(process.argv.slice(2));
 
 // Set valid arguments
-argv["port"];
+argv["port", "debug"];
 
 // Get port from argument, if not argument exists set to 5000
 const HTTP_PORT = argv.port || 5000;
@@ -49,21 +50,20 @@ app.use(require("./src/routes/login.route"))
 // Startup route
 app.use(require("./src/routes/startup.route"))
 
+if (argv.debug){
+    // Endpoint that lets you view all user accounts
+    app.get('/app/view-user-db', (req, res) => {
+        const select_statement = user_db.prepare('SELECT * FROM userLoginInfo').all();
+        res.status(200).json(select_statement);
+    });
 
-// Endpoint that lets you view all user accounts
-// Should be removed before final submission
-app.get('/view-user-db', (req, res) => {
-    const select_statement = user_db.prepare('SELECT * FROM userLoginInfo').all();
-    res.status(200).json(select_statement);
-});
 
-
-// Endpoint that lets you view all user interactions
-// Should be removed before final submission
-app.get('/view-interactions-db', (req, res) => {
-    const select_statement = interactions_db.prepare('SELECT * FROM userInteractionInfo').all();
-    res.status(200).json(select_statement);
-});
+    // Endpoint that lets you view all user interactions
+    app.get('/app/view-interactions-db', (req, res) => {
+        const select_statement = interactions_db.prepare('SELECT * FROM userInteractionInfo').all();
+        res.status(200).json(select_statement);
+    });
+}
 
 // Default endpoint request
 app.use(function(req, res){
