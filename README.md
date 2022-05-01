@@ -19,7 +19,7 @@ COVID-19 dashboard that allows you to to view COVID information and statistics f
 * [API Documenation ](docs/api-endpoints.md)
 
 ## Run Instructions
-* Run either `npm test` (opens up DB information endpoints) or `npm start`
+* Run either `npm test` (opens up DB information endpoints) or `npm start` or `npm run run`
 * Go to [localhost:5000/app/](http:localhost:5000/app/)
 
 ## Dependencies
