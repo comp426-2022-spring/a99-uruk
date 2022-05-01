@@ -173,6 +173,7 @@ router.route('/app/log-frontend-interaction').post(function (req, res, next) {
     console.log("test");
     let stmt = interactions_db.prepare("INSERT INTO userInteractionInfo (email, username, time, interactiontype) VALUES (?, ?, ?, ?)");
     let insert = stmt.run(req.session.email, req.session.username, req.body.time, req.body.state);
+    res.status(200);
 });
 
 
