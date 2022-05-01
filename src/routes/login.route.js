@@ -61,10 +61,13 @@ router.route('/sign-in').post(function (req, res, next) {
     console.log(insert);
     console.log(user.username)
     if (typeof insert == "undefined") {
+        // If account is already in DB prevent sign in
         console.log("Account Doesn't Exist Yet")
         res.redirect("http://localhost:5000/app/");
     } else {
         if (user.username == insert.username && user.password == insert.password) {
+            // If username and password are correct permit sign in
+
             // Set session user details
             req.session.email = user.email;
             req.session.username = insert.username;
@@ -73,6 +76,7 @@ router.route('/sign-in').post(function (req, res, next) {
             console.log("Successfully Logged In")
             res.redirect("http://localhost:5000/coviddata/app/");
         } else {
+            // If username or password are incorrect block sign in
             console.log("Wrong Username/Password");
             res.redirect("http://localhost:5000/app/");
         }
@@ -99,6 +103,7 @@ router.route('/change-username').post(function (req, res, next) {
     let row = getRow.get(req.session.email);
     let userId = row.userId;
 
+    // Modify username based on userId
     let stmt = user_db.prepare("UPDATE userLoginInfo SET username = ? WHERE userId = ?");
     let insert = stmt.run(newUsername, userId);
     req.session.username = newUsername;
@@ -147,6 +152,7 @@ router.route('/change-password').post(function (req, res, next) {
     let row = getRow.get(req.session.email);
     let userId = row.userId;
 
+    // Modify password based on userId
     let stmt = user_db.prepare("UPDATE userLoginInfo SET password = ? WHERE userId = ?");
     let insert = stmt.run(newPassword, userId);
     req.session.password = newPassword;
@@ -160,10 +166,21 @@ router.route('/delete-account').get(function (req, res, next) {
     let row = getRow.get(req.session.email);
     let userId = row.userId;
 
+    // Delete account based on userId
     let stmt = user_db.prepare("DELETE FROM userLoginInfo WHERE userId = ?");
     let insert = stmt.run(userId);
+    // Send user back to login/signup page
     res.redirect("/app/")
 });
+
+
+// Logs frontend interaction for user
+router.route('/app/log-frontend-interaction').post(function (req, res, next) {
+    console.log("test");
+    let stmt = interactions_db.prepare("INSERT INTO userInteractionInfo (email, username, time, interactiontype) VALUES (?, ?, ?, ?)");
+    let insert = stmt.run(req.session.email, req.session.username, req.body.time, req.body.state);
+});
+
 
 
 module.exports = router;
