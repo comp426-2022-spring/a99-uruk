@@ -9,3 +9,8 @@ input[type=password], input[type=text] {
   display: inline-block;
   box-sizing: border-box;
 }
+
+.topright {
+  float:right;
+  padding-right: 4px;
+}

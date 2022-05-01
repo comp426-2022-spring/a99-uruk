@@ -153,6 +153,17 @@ router.route('/change-password').post(function (req, res, next) {
     res.redirect("/accountpage")
 });
 
+// Delete account endpoint
+router.route('/delete-account').get(function (req, res, next) {
+    // Get user ID for insert
+    let getRow = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
+    let row = getRow.get(req.session.email);
+    let userId = row.userId;
+
+    let stmt = user_db.prepare("DELETE FROM userLoginInfo WHERE userId = ?");
+    let insert = stmt.run(userId);
+    res.redirect("/")
+});
 
 
 module.exports = router;
