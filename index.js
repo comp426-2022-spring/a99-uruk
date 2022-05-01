@@ -40,25 +40,26 @@ const server = app.listen(HTTP_PORT, () => {
     console.log('App listening on port %PORT%'.replace('%PORT%',HTTP_PORT))
 });
 
-// accountpage + coviddata routes
+// Accountpage and coviddata routes
 app.use(require("./src/routes/accountpage.route"))
 app.use(require("./src/routes/coviddata.route"))
 
-// Signup & signin endpoints route
+// Signup and signin endpoints route
 app.use(require("./src/routes/login.route"))
 
 // Startup route
 app.use(require("./src/routes/startup.route"))
 
+
+// Endpoints for debug mode only
 if (argv.debug){
-    // Endpoint that lets you view all user accounts
+    // Returns user login database
     app.get('/app/view-user-db', (req, res) => {
         const select_statement = user_db.prepare('SELECT * FROM userLoginInfo').all();
         res.status(200).json(select_statement);
     });
 
-
-    // Endpoint that lets you view all user interactions
+    // Returns user interactions database
     app.get('/app/view-interactions-db', (req, res) => {
         const select_statement = interactions_db.prepare('SELECT * FROM userInteractionInfo').all();
         res.status(200).json(select_statement);
@@ -69,5 +70,3 @@ if (argv.debug){
 app.use(function(req, res){
     res.status(404).send('404 NOT FOUND')
 });
-
-

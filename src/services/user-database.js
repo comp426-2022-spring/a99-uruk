@@ -6,6 +6,7 @@ const user_stmt = user_db.prepare(`SELECT name FROM sqlite_master WHERE type = '
 
 let user_row = user_stmt.get();
 
+// If user DB doesn't exist than create the DB
 if (user_row == undefined) {
     const sqlInit = `
         CREATE TABLE userLoginInfo (

@@ -7,6 +7,8 @@ const interactions_stmt = interactions_db.prepare(`SELECT name FROM sqlite_maste
 
 let interactions_row = interactions_stmt.get();
 
+
+// If interactions DB doens't exist then create the DB
 if (interactions_row == undefined) {
     const sqlInit = `
         CREATE TABLE userInteractionInfo (
