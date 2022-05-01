@@ -32,9 +32,9 @@ router.route('/app/sign-up/').post(function (req, res, next) {
             stmt = user_db.prepare("INSERT INTO userLoginInfo (email, password, username) VALUES (?, ?, ?)");
             insert = stmt.run(user.email, user.password, user.username);
             console.log("Account Created");
-            res.send({message: "Account Created"});
+            res.send({message: "Account created"});
         } else {
-            res.send({message: "Account Already Exists"})
+            res.send({message: "Account already exists"})
         }
     } else {
         res.send({message: "Email is invalid"})
@@ -59,7 +59,7 @@ router.route('/app/sign-in/').post(function (req, res, next) {
     console.log(user.username)
     if (typeof insert == "undefined") {
         // If account isn't already in DB prevent sign in
-        res.send({message:"Account Doesn't Exist Yet"})
+        res.send({message:"Account doesn't exist yet"})
     } else {
         if (user.username == insert.username && user.password == insert.password) {
             // If username and password are correct permit sign in

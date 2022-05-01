@@ -11,8 +11,10 @@ async function createAccount() {
     })
 
     if (result.message == "Account Created"){
+        document.getElementById("message").style.visibility = "hidden";
         location.href = "http://localhost:5000/app/coviddata/";
     } else {
+        document.getElementById("message").style.visibility = "visible";
         document.getElementById("submitresult").textContent = result.message;
     }
 }
@@ -30,8 +32,10 @@ async function signIn() {
     })
 
     if (result.message == "Success"){
+        document.getElementById("message").style.visibility = "hidden";
         location.href = "http://localhost:5000/app/coviddata/";
     } else {
+        document.getElementById("message").style.visibility = "visible";
         document.getElementById("submitresult").textContent = result.message;
     }
 }
