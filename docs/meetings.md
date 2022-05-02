@@ -78,3 +78,24 @@ Endpoints we will use:
 * Account page
 * US totals page
 * States page
+
+
+## 4-30-22 Meeting Notes
+* Max will add in login validation and the account management page
+ * Use email validation NPM package for valdiation
+ * Account managamenet page will support:
+  * Delete account
+  * Change username
+  * Change password
+  * Change email
+  * Allow user to view current information
+* Robert will work on finishing finishing API documenation and making the login page look nicer
+ * Will add alert if email is already being used or if account doesn't exist yet
+ * Can add listeners in the script.js to accomplish this
+* The rest of the work is all done
+
+## 4-31-22 Meeting Notes
+* Robert will refactor endpoints to be based around /app/
+* Maxwell will creator the readme
+* Fixed issues with loading JS and CSS through endpoints
+* Will record video this evening with whoever is available
