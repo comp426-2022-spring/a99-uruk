@@ -82,12 +82,12 @@ Keep-Alive: timeout=5
 ```
 
 
-### /app/login/style.css/ (GET)
+### /app/style.css/ (GET)
 
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/login/style.css/
+curl http://localhost:5000/app/style.css/
 ```
 
 #### Response
@@ -110,12 +110,12 @@ X-Powered-By: Express
 
 
 
-### /app/login/script.js/ (GET)
+### /app/script.js/ (GET)
 
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/login/script.js/
+curl http://localhost:5000/app/script.js/
 ```
 
 #### Response
