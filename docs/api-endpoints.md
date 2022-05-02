@@ -375,6 +375,19 @@ curl http://localhost:5000/app/get-user-info/
 {"email" : "user's email", "username" : "user's username", "password" : "user's password"}
 ```
 
+#### Headers
+```
+Connection: keep-alive
+Content-Length: 72
+Content-Type: application/json; charset=utf-8
+Date: Mon, 02 May 2022 00:04:04 GMT
+ETag: W/"48-+SMK+/MVXBmuvfcjSFr2fUgjdq8"
+Keep-Alive: timeout=5
+X-Powered-By: Express
+```
+
+
+
 ### /app/change-username/ (POST)
 
 #### Request cURL
@@ -395,6 +408,20 @@ curl http://localhost:5000/app/change-username/
 Changes user's username in the database.
 Status 200, no JSON response.
 ```
+
+#### Headers
+```
+Connection: keep-alive
+Content-Length: 76
+Content-Type: text/html; charset=utf-8
+Date: Mon, 02 May 2022 00:04:26 GMT
+Keep-Alive: timeout=5
+Location: /app/accountpage
+Vary: Accept
+X-Powered-By: Express
+```
+
+
 
 ### /app/change-email/ (POST)
 
@@ -418,6 +445,20 @@ If email is not in use, changes database to reflect new email.
 Status 200, no JSON response.
 ```
 
+#### Headers
+```
+Connection: keep-alive
+Content-Length: 76
+Content-Type: text/html; charset=utf-8
+Date: Mon, 02 May 2022 00:04:54 GMT
+Keep-Alive: timeout=5
+Location: /app/accountpage
+Vary: Accept
+X-Powered-By: Express
+```
+
+
+
 ### /app/change-password/ (POST)
 
 #### Request cURL
@@ -439,6 +480,20 @@ Changes user's password in the database.
 Status 200, no JSON response.
 ```
 
+#### Headers
+```
+Connection: keep-alive
+Content-Length: 76
+Content-Type: text/html; charset=utf-8
+Date: Mon, 02 May 2022 00:05:15 GMT
+Keep-Alive: timeout=5
+Location: /app/accountpage
+Vary: Accept
+X-Powered-By: Express
+```
+
+
+
 ### /app/delete-account/ (GET)
 
 #### Request cURL
@@ -454,6 +509,20 @@ Deletes user's account from the database.
 Redirects back to login page.
 Redirects to http://localhost:5000/app/
 ```
+
+#### Headers
+```
+Connection: keep-alive
+Content-Length: 54
+Content-Type: text/html; charset=utf-8
+Date: Mon, 02 May 2022 00:06:40 GMT
+Keep-Alive: timeout=5
+Location: /app/
+Vary: Accept
+X-Powered-By: Express
+```
+
+
 
 ### /app/log-frontend-interaction/ (POST)
 
@@ -475,6 +544,20 @@ curl http://localhost:5000/app/log-frontend-interaction/
 Logs the user's email, username, time accessed, and state viewed in the frontend interaction database.
 Status 200, no JSON response.
 ```
+
+#### Headers
+```
+Connection: keep-alive
+Content-Length: 76
+Content-Type: text/html; charset=utf-8
+Date: Mon, 02 May 2022 00:05:15 GMT
+Keep-Alive: timeout=5
+Location: /app/coviddata
+Vary: Accept
+X-Powered-By: Express
+```
+
+
 
 ## DEBUG/TEST SERVER ONLY
 
