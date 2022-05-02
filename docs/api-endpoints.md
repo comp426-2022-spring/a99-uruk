@@ -414,6 +414,7 @@ curl http://localhost:5000/app/get-user-info/
 
 #### Reponse Headers
 ```
+HTTP/1.1 200 OK
 Connection: keep-alive
 Content-Length: 72
 Content-Type: application/json; charset=utf-8
@@ -531,6 +532,7 @@ Redirects to http://localhost:5000/app/
 
 #### Response Headers
 ```
+HTTP/1.1 200 OK
 Connection: keep-alive
 Content-Length: 54
 Content-Type: text/html; charset=utf-8
@@ -548,7 +550,7 @@ X-Powered-By: Express
 #### Request cURL
 
 ```
-curl -X POST -H 'Content-Type: application/json' -d '{"email": "user's email", "username": "user's username", "time": "current time", "state": "state which the user viewed"}' http://localhost:5000/app/log-frontend-interaction/
+curl -X POST -H 'Content-Type: application/json' -d '{"time": "current time", "state": "state (or USA) which the user viewed"}' http://localhost:5000/app/log-frontend-interaction/
 ```
 
 #### Response
@@ -560,6 +562,7 @@ Status 200, no JSON response.
 
 #### Response Headers
 ```
+HTTP/1.1 200 OK
 Connection: keep-alive
 Content-Length: 76
 Content-Type: text/html; charset=utf-8
@@ -590,6 +593,7 @@ Returns interactions.db
 
 #### Reponse Headers
 ```
+HTTP/1.1 200 OK
 Connection: keep-alive
 Date: Sun, 01 May 2022 23:55:31 GMT
 ETag: W/"273-IbszDcyvPA0T7sqBNDoryJif89I"
@@ -615,6 +619,7 @@ Returns user.db
 
 #### Reponse Headers
 ```
+HTTP/1.1 200 OK
 Connection: keep-alive
 Date: Sun, 01 May 2022 23:54:54 GMT
 ETag: W/"56-xY/Vo+Z9wc3/RXiyzFQ51VIYiBw"
