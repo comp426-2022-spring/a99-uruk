@@ -308,6 +308,19 @@ If successful sign up:
 {message: "Account Created"}
 ```
 
+#### Headers
+```
+Connection: keep-alive
+Content-Length: 29
+Content-Type: application/json; charset=utf-8
+Date: Mon, 02 May 2022 00:02:31 GMT
+ETag: W/"1d-dPbyniY7suAXfW3Kw2vhaGgYruQ"
+Keep-Alive: timeout=5
+X-Powered-By: Express
+```
+
+
+
 ### /app/sign-in/ (POST)
 
 #### Request cURL
@@ -334,6 +347,19 @@ If username or password does not match:
 If successful sign in:
 {message: "Success"}
 ```
+
+#### Headers
+```
+Connection: keep-alive
+Content-Length: 21
+Content-Type: application/json; charset=utf-8
+Date: Mon, 02 May 2022 00:03:13 GMT
+ETag: W/"15-uFFjCr0SbbbFb/CsC0M2sF++swo"
+Keep-Alive: timeout=5
+X-Powered-By: Express
+```
+
+
 
 ### /app/get-user-info/ (GET)
 
@@ -413,7 +439,7 @@ Changes user's password in the database.
 Status 200, no JSON response.
 ```
 
-### /app/change-password/ (GET)
+### /app/delete-account/ (GET)
 
 #### Request cURL
 
