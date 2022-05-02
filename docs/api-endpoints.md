@@ -96,7 +96,7 @@ curl http://localhost:5000/app/login/style.css/
 Returns /public/login/style.css file
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Accept-Ranges: bytes
 Cache-Control: public, max-age=0
@@ -124,7 +124,7 @@ curl http://localhost:5000/app/login/script.js/
 Returns /public/login/script.js file
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Accept-Ranges: bytes
 Cache-Control: public, max-age=0
@@ -151,7 +151,7 @@ curl http://localhost:5000/app/accountpage/
 Returns /public/accountpage/index.html file
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Accept-Ranges: bytes
 Cache-Control: public, max-age=0
@@ -180,7 +180,7 @@ curl http://localhost:5000/app/accountpage/style.css/
 Returns /public/accountpage/style.css file
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Accept-Ranges: bytes
 Cache-Control: public, max-age=0
@@ -208,7 +208,7 @@ curl http://localhost:5000/app/accountpage/script.js/
 Returns /public/coviddata/script.js file
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Accept-Ranges: bytes
 Cache-Control: public, max-age=0
@@ -276,7 +276,7 @@ curl http://localhost:5000/app/coviddata/style.css/
 Returns /public/coviddata/style.css file
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Accept-Ranges: bytes
 Cache-Control: public, max-age=0
@@ -305,7 +305,7 @@ curl http://localhost:5000/app/coviddata/script.js/
 Returns /public/coviddata/script.js file
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Accept-Ranges: bytes
 Cache-Control: public, max-age=0
@@ -578,7 +578,7 @@ curl http://localhost:5000/view-interactions-db/
 Returns interactions.db
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Connection: keep-alive
 Date: Sun, 01 May 2022 23:55:31 GMT
@@ -603,7 +603,7 @@ curl http://localhost:5000/view-user-db/
 Returns user.db
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Connection: keep-alive
 Date: Sun, 01 May 2022 23:54:54 GMT
