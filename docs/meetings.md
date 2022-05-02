@@ -78,5 +78,3 @@ Endpoints we will use:
 * Account page
 * US totals page
 * States page
-* Next meeting:
-    * Thursday at 8:00PM
