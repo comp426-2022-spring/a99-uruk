@@ -18,7 +18,6 @@ router.route('/app/sign-up/').post(function (req, res, next) {
     // Check if email is already in DB
     let stmt = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
     let insert = stmt.get(user.email);
-    console.log(insert);
 
     // Check if email is valid and if it already exists in the DB
     if (validate(user.email)) {
@@ -30,7 +29,6 @@ router.route('/app/sign-up/').post(function (req, res, next) {
 
             stmt = user_db.prepare("INSERT INTO userLoginInfo (email, password, username) VALUES (?, ?, ?)");
             insert = stmt.run(user.email, user.password, user.username);
-            console.log("Account Created");
             res.send({message: "Account created"});
         } else {
             res.send({message: "Account already exists"})
@@ -52,8 +50,7 @@ router.route('/app/sign-in/').post(function (req, res, next) {
     // Check if email is already in DB
     let stmt = user_db.prepare("SELECT * FROM userLoginInfo WHERE email = ?");
     let insert = stmt.get(user.email);
-    console.log(insert);
-    console.log(user.username)
+
     if (typeof insert == "undefined") {
         // If account isn't already in DB prevent sign in
         res.send({message:"Account doesn't exist yet"})

@@ -544,7 +544,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{"email": "user's email", "
 #### Response
 
 ```
-Logs the user's email, username, time accessed, and state viewed in the frontend interaction database.
+Logs the user's email, username, time accessed, and state (or entire country) viewed in the frontend interaction database.
 Status 200, no JSON response.
 ```
 
@@ -564,7 +564,7 @@ X-Powered-By: Express
 
 ## DEBUG/TEST SERVER ONLY
 
-### /view-interactions-db/ (GET)
+### /app/view-interactions-db/ (GET)
 
 #### Request cURL
 
@@ -589,7 +589,7 @@ X-Powered-By: Express
 
 
 
-### /view-user-db/ (GET)
+### /app/view-user-db/ (GET)
 
 #### Request cURL
 
