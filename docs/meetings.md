@@ -92,7 +92,7 @@ Endpoints we will use:
 * Robert will work on finishing finishing API documenation and making the login page look nicer
   * Will add alert if email is already being used or if account doesn't exist yet
   * Can add listeners in the script.js to accomplish this
-* The rest of the work is all done
+* Colin, Connor, and Jen's work is all done
 
 ## 4-31-22 Meeting Notes
 * Robert will refactor endpoints to be based around /app/
