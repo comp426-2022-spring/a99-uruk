@@ -16,16 +16,28 @@ curl http://localhost:5000/
 Redirects to http://localhost:5000/app/
 ```
 
-#### Headers
+#### Reponse Body (Truncated)
 ```
-Connection: keep-alive
-Content-Length: 96
-Content-Type: text/html; charset=utf-8
-Date: Sun, 01 May 2022 23:50:28 GMT
-Keep-Alive: timeout=5
-Location: http://localhost:5000/app/
-Vary: Accept
+ <!DOCTYPE html>
+                    <html lang="en">
+                        <head>
+                            <link rel="stylesheet" href="style.css"></script>
+                            <script src="script.js"></script>
+                        </head>
+                        <body>
+                            <div id="container...
+```
+
+#### Reponse Headers
+```
+HTTP/1.1 200 OK
 X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 1112
+ETag: W/"2e-U/q8iZ4JKqczXPIvtwiVRpEFlRc"
+Sun, 01 May 2022 23:50:28 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 
@@ -43,16 +55,30 @@ curl http://localhost:5000/app/
 Returns /public/login/index.html file
 ```
 
-#### Headers
+#### Response Body (Truncated)
+
 ```
-Accept-Ranges: bytes
-Cache-Control: public, max-age=0
-Connection: keep-alive
-Date: Sun, 01 May 2022 23:50:28 GMT
-ETag: W/"462-18081697340"
-Keep-Alive: timeout=5
-Last-Modified: Sun, 01 May 2022 20:56:53 GMT
+<!DOCTYPE html>
+                    <html lang="en">
+                        <head>
+                            <link rel="stylesheet" href="style.css"></script>
+                            <script src="script.js"></script>
+                        </head>
+                        <body>
+                            <div id="container...
+```
+
+
+#### Reponse Headers
+```
+HTTP/1.1 200 OK
 X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 1112
+ETag: W/"2e-U/q8iZ4JKqczXPIvtwiVRpEFlRc"
+Date: Sun, 01 May 2022 20:56:53 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 
@@ -210,16 +236,28 @@ curl http://localhost:5000/app/coviddata/
 Returns /public/coviddata/index.html file
 ```
 
-#### Headers
+#### Response Body (Truncated)
 ```
-Accept-Ranges: bytes
-Cache-Control: public, max-age=0
-Connection: keep-alive
-Date: Sun, 01 May 2022 23:53:05 GMT
-ETag: W/"1933-18081e5673c"
-Keep-Alive: timeout=5
-Last-Modified: Sun, 01 May 2022 23:12:16 GMT
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">...
+```
+
+
+#### Reponse Headers
+```
+HTTP/1.1 200 OK
 X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 6451
+ETag: W/"2e-U/q8iZ4JKqczXPIvtwiVRpEFlRc"
+Date: Sun, 01 May 2022 23:12:16 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 
@@ -286,14 +324,9 @@ X-Powered-By: Express
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/sign-up/
+curl -X POST -H 'Content-Type: application/json' -d '{"email": "example@email.com", "username": "examplename", "password": "examplepass"}' http://localhost:5000/app/sign-up/
 ```
 
-#### Request Body
-
-```
-{"email": "example@email.com", "username": "examplename", "password": "examplepass"}
-```
 
 #### Response
 
@@ -308,7 +341,7 @@ If successful sign up:
 {message: "Account Created"}
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Connection: keep-alive
 Content-Length: 29
@@ -326,13 +359,7 @@ X-Powered-By: Express
 #### Request cURL
 
 ```
-curl http://localhost:5000/sign-in/
-```
-
-#### Request Body
-
-```
-{"email": "example@email.com", "username": "examplename", "password": "examplepass"}
+curl -X POST -H 'Content-Type: application/json' -d '{"email": "example@email.com", "username": "examplename", "password": "examplepass"}' http://localhost:5000/app/sign-in/
 ```
 
 #### Response
@@ -348,7 +375,7 @@ If successful sign in:
 {message: "Success"}
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Connection: keep-alive
 Content-Length: 21
@@ -375,7 +402,7 @@ curl http://localhost:5000/app/get-user-info/
 {"email" : "user's email", "username" : "user's username", "password" : "user's password"}
 ```
 
-#### Headers
+#### Reponse Headers
 ```
 Connection: keep-alive
 Content-Length: 72
@@ -393,13 +420,7 @@ X-Powered-By: Express
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/change-username/
-```
-
-#### Request Body
-
-```
-{"username": "new username"}
+curl -X POST -H 'Content-Type: application/json' -d '{"username": "new username"}' http://localhost:5000/app/change-username/
 ```
 
 #### Response
@@ -409,7 +430,7 @@ Changes user's username in the database.
 Status 200, no JSON response.
 ```
 
-#### Headers
+#### Response Headers
 ```
 Connection: keep-alive
 Content-Length: 76
@@ -428,13 +449,7 @@ X-Powered-By: Express
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/change-email/
-```
-
-#### Request Body
-
-```
-{"email": "new email"}
+curl -X POST -H 'Content-Type: application/json' -d '{"email": "new email"}' http://localhost:5000/app/change-email/
 ```
 
 #### Response
@@ -445,7 +460,7 @@ If email is not in use, changes database to reflect new email.
 Status 200, no JSON response.
 ```
 
-#### Headers
+#### Response Headers
 ```
 Connection: keep-alive
 Content-Length: 76
@@ -464,13 +479,7 @@ X-Powered-By: Express
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/change-password/
-```
-
-#### Request Body
-
-```
-{"password": "new password"}
+curl -X POST -H 'Content-Type: application/json' -d '{"password": "new password"}' http://localhost:5000/app/change-password/
 ```
 
 #### Response
@@ -480,7 +489,7 @@ Changes user's password in the database.
 Status 200, no JSON response.
 ```
 
-#### Headers
+#### Response Headers
 ```
 Connection: keep-alive
 Content-Length: 76
@@ -510,7 +519,7 @@ Redirects back to login page.
 Redirects to http://localhost:5000/app/
 ```
 
-#### Headers
+#### Response Headers
 ```
 Connection: keep-alive
 Content-Length: 54
@@ -529,13 +538,7 @@ X-Powered-By: Express
 #### Request cURL
 
 ```
-curl http://localhost:5000/app/log-frontend-interaction/
-```
-
-#### Request Body
-
-```
-{"email": "user's email", "username": "user's username", "time": "current time", "state": "state which the user viewed",}
+curl -X POST -H 'Content-Type: application/json' -d '{"email": "user's email", "username": "user's username", "time": "current time", "state": "state which the user viewed"}' http://localhost:5000/app/log-frontend-interaction/
 ```
 
 #### Response
@@ -545,7 +548,7 @@ Logs the user's email, username, time accessed, and state viewed in the frontend
 Status 200, no JSON response.
 ```
 
-#### Headers
+#### Response Headers
 ```
 Connection: keep-alive
 Content-Length: 76
