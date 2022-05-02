@@ -84,14 +84,14 @@ Endpoints we will use:
 * Max will add in login validation and the account management page
  * Use email validation NPM package for valdiation
  * Account managamenet page will support:
-  * Delete account
-  * Change username
-  * Change password
-  * Change email
-  * Allow user to view current information
+   * Delete account
+   * Change username
+   * Change password
+   * Change email
+   * Allow user to view current information
 * Robert will work on finishing finishing API documenation and making the login page look nicer
- * Will add alert if email is already being used or if account doesn't exist yet
- * Can add listeners in the script.js to accomplish this
+  * Will add alert if email is already being used or if account doesn't exist yet
+  * Can add listeners in the script.js to accomplish this
 * The rest of the work is all done
 
 ## 4-31-22 Meeting Notes
