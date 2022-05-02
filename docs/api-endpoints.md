@@ -582,7 +582,7 @@ X-Powered-By: Express
 #### Request cURL
 
 ```
-curl http://localhost:5000/view-interactions-db/
+curl http://localhost:5000/app/view-interactions-db/
 ```
 
 #### Response
@@ -608,7 +608,7 @@ X-Powered-By: Express
 #### Request cURL
 
 ```
-curl http://localhost:5000/view-user-db/
+curl http://localhost:5000/app/view-user-db/
 ```
 
 #### Response
