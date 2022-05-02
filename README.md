@@ -32,4 +32,5 @@ email-validator | 2.0.4
 express | 4.18.1
 express-session | 1.17.2
 minimist | 1.2.6
+morgan | 1.10.0
 nodemon | 2.0.16
