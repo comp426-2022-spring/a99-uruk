@@ -18,14 +18,14 @@ Redirects to http://localhost:5000/app/
 
 #### Reponse Body (Truncated)
 ```
- <!DOCTYPE html>
-                    <html lang="en">
-                        <head>
-                            <link rel="stylesheet" href="style.css"></script>
-                            <script src="script.js"></script>
-                        </head>
-                        <body>
-                            <div id="container...
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <link rel="stylesheet" href="style.css"></script>
+            <script src="script.js"></script>
+        </head>
+        <body>
+            <div id="container...
 ```
 
 #### Reponse Headers
@@ -59,13 +59,13 @@ Returns /public/login/index.html file
 
 ```
 <!DOCTYPE html>
-                    <html lang="en">
-                        <head>
-                            <link rel="stylesheet" href="style.css"></script>
-                            <script src="script.js"></script>
-                        </head>
-                        <body>
-                            <div id="container...
+    <html lang="en">
+        <head>
+            <link rel="stylesheet" href="style.css"></script>
+            <script src="script.js"></script>
+        </head>
+        <body>
+            <div id="container...
 ```
 
 
@@ -151,18 +151,28 @@ curl http://localhost:5000/app/accountpage/
 Returns /public/accountpage/index.html file
 ```
 
+
+#### Response Body (Truncated)
+
+```
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+```
+
 #### Reponse Headers
 ```
-Accept-Ranges: bytes
-Cache-Control: public, max-age=0
-Connection: keep-alive
-Content-Length: 2324
-Content-Type: text/html; charset=UTF-8
-Date: Sun, 01 May 2022 23:52:17 GMT
-ETag: W/"914-18081e56739"
-Keep-Alive: timeout=5
-Last-Modified: Sun, 01 May 2022 23:12:16 GMT
+HTTP/1.1 200 OK
 X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 2324
+ETag: W/"2e-U/q8iZtJK53zXPIvtwiVRpEFlRc"
+Date: Sun, 01 May 2022 20:57:53 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 
