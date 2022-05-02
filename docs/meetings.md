@@ -96,6 +96,6 @@ Endpoints we will use:
 
 ## 4-31-22 Meeting Notes
 * Robert will refactor endpoints to be based around /app/
-* Maxwell will creator the readme
+* Maxwell will create the readme
 * Fixed issues with loading JS and CSS through endpoints
 * Will record video this evening with whoever is available
